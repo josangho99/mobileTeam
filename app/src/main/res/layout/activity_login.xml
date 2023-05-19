@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="20dp"
+        android:text = "아이디"
+        android:layout_marginRight="20dp"
+        ></TextView>
+
+    <EditText
+        android:id ="@+id/editText_id"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/rounded"
+        android:backgroundTint="#EAF0F7"
+        ></EditText>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:text = "비밀번호"
+        android:layout_marginRight="20dp"
+        ></TextView>
+
+    <EditText
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/rounded"
+        android:backgroundTint="#EAF0F7"
+        >
+    </EditText>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="@color/white"
+        android:text="회원가입"
+        android:textSize = "14dp"
+        android:textColor ="#797C80"
+        android:background="#00ff0000"
+        >
+    </Button>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text = "로그인 하기"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:background="@drawable/rounded">
+    </Button>
+
+</LinearLayout>

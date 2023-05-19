@@ -8,12 +8,13 @@
 
     <item
         android:id="@+id/centerlistFragment"
-        android:title="주변 시설 목록"
-        android:icon="@drawable/list_black_24"/>
+        android:title="시설 목록"
+        android:icon="@drawable/list_ui"/>
     <item
         android:id="@+id/mapFragment"
-        android:title="지도"
-        android:icon="@drawable/map"/>
+        android:title="시설 지도"
+        android:icon="@drawable/map"
+        />
     <item
         android:id="@+id/myPageFragment"
         android:title="내 정보"

@@ -18,7 +18,7 @@ class NaviActivity : AppCompatActivity() {
         var binding = ActivityNaviBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setFragment(TAG_LIST, centerlist())
+        setFragment(TAG_MAP, map())
 
         binding.navigationView.setOnItemSelectedListener { item ->
             when(item.itemId) {
