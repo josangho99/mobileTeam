@@ -3,34 +3,25 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <EditText
-        android:id="@+id/write_title"
+    <TextView
+        android:id="@+id/item_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:gravity="center"
         android:text="제목"
-        ></EditText>
-
-    <EditText
-        android:id="@+id/write_content"
+        ></TextView>
+    <TextView
+        android:id="@+id/item_content"
         android:layout_width="match_parent"
-        android:layout_height="470dp"
+        android:layout_height="480dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:text="내용을 입력하세요."
+        android:layout_marginTop="30dp"
+        android:text="내용."
         android:gravity="top"
         android:background="@drawable/rectangle"
-        ></EditText>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:text="글 등록하기"
-        android:layout_marginRight="20dp"
-        ></Button>
+        ></TextView>
 </LinearLayout>
