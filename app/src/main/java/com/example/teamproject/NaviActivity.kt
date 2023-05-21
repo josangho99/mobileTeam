@@ -23,7 +23,7 @@ class NaviActivity : AppCompatActivity() {
         binding.navigationView.setOnItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.communityFragment -> setFragment(TAG_COMMUNITY, community())
-                R.id.centerListFragment -> setFragment(TAG_LIST, centerlist())
+                R.id.centerlistFragment -> setFragment(TAG_LIST, centerlist())
                 R.id.myPageFragment-> setFragment(TAG_MYPAGE, mypage())
                 R.id.mapFragment -> setFragment(TAG_MAP,map())
             }
