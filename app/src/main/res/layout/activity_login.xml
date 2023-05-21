@@ -14,7 +14,7 @@
         ></TextView>
 
     <EditText
-        android:id ="@+id/editText_id"
+        android:id ="@+id/login_id"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="5dp"
@@ -33,7 +33,7 @@
         ></TextView>
 
     <EditText
-        android:id ="@+id/editText_pw"
+        android:id ="@+id/login_pw"
         android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -46,7 +46,7 @@
     </EditText>
 
     <Button
-        android:id="@+id/login_reg"
+        android:id="@+id/login_joinbtn"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginLeft="300dp"
@@ -60,7 +60,7 @@
         >
     </Button>
     <Button
-        android:id="@+id/login_login"
+        android:id="@+id/login_loginbtn"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="220dp"

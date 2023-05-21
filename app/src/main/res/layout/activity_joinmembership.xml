@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="20dp"
+        android:text = "아이디"
+        android:layout_marginRight="20dp"
+        ></TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/join_id"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"></EditText>
+
+        <Button
+            android:id="@+id/join_idcheck"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="중복확인"
+            android:textSize="13dp"></Button>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:text = "비밀번호"
+        android:layout_marginRight="20dp"
+        ></TextView>
+
+    <EditText
+        android:id ="@+id/join_pw"
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        >
+    </EditText>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:text = "비밀번호 확인"
+        android:layout_marginRight="20dp"
+        ></TextView>
+
+    <EditText
+        android:id ="@+id/join_pwcheck"
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        >
+    </EditText>
+    <TextView
+        android:id="@+id/join_pwcheckresult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="#0000FF"
+        android:text="비밀번호가 일치합니다"
+        ></TextView>
+
+    <Button
+        android:id="@+id/join_joinbtn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text = "회원가입"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:background="@drawable/rounded">
+    </Button>
+</LinearLayout>

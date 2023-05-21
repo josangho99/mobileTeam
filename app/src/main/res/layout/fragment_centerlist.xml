@@ -4,11 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".centerlist">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageButton
+        android:id = "@+id/centerlist_searchbtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/search_svg">
+    </ImageButton>
 
 </FrameLayout>
