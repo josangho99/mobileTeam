@@ -30,7 +30,7 @@
         <Button
             android:id="@+id/join_idcheck"
             android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_height="55dp"
             android:text="중복확인"
             android:textSize="13dp"></Button>
     </LinearLayout>
@@ -38,7 +38,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:text = "비밀번호"
         android:layout_marginRight="20dp"
@@ -57,7 +57,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:text = "비밀번호 확인"
         android:layout_marginRight="20dp"
@@ -82,12 +82,39 @@
         android:textColor="#0000FF"
         android:text="비밀번호가 일치합니다"
         ></TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="닉네임"
+        ></TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:orientation="horizontal">
 
+        <EditText
+            android:id="@+id/join_nickname"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"></EditText>
+
+        <Button
+            android:id="@+id/join_nicknamecheck"
+            android:layout_width="60dp"
+            android:layout_height="55dp"
+            android:text="중복확인"
+            android:textSize="13dp"></Button>
+    </LinearLayout>
     <Button
         android:id="@+id/join_joinbtn"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="60dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text = "회원가입"
