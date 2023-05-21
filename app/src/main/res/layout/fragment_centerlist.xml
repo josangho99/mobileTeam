@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".centerlist">
     <ImageButton
-        android:id = "@+id/centerlist_searchbtn"
+        android:id = "@+id/centerlist_searchBtn"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginLeft="350dp"
@@ -18,7 +18,7 @@
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/community_items"
+            android:id="@+id/centerlist_items"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp">

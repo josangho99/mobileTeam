@@ -6,7 +6,7 @@
     tools:context=".community">
 
     <ImageButton
-        android:id="@+id/community_writebtn"
+        android:id="@+id/community_writeBtn"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginLeft="360dp"

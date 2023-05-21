@@ -46,7 +46,7 @@
     </EditText>
 
     <Button
-        android:id="@+id/login_joinbtn"
+        android:id="@+id/login_joinBtn"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginLeft="300dp"
@@ -60,7 +60,7 @@
         >
     </Button>
     <Button
-        android:id="@+id/login_loginbtn"
+        android:id="@+id/login_loginBtn"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="220dp"

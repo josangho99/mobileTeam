@@ -7,7 +7,7 @@
     tools:context=".mypage">
 
     <Button
-        android:id="@+id/mypage_loginbtn"
+        android:id="@+id/myPage_loginBtn"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="70dp"
@@ -19,7 +19,7 @@
         android:background="@drawable/rounded"
         ></Button>
     <Button
-        android:id="@+id/mypage_reportbtn"
+        android:id="@+id/myPage_reportBtn"
         android:layout_width="90dp"
         android:layout_height="40dp"
         android:layout_marginTop="200dp"
@@ -28,19 +28,19 @@
         android:background="@drawable/rounded_radius_30"
         ></Button>
     <Button
-        android:id="@+id/mypage_noticebtn"
+        android:id="@+id/myPage_noticeBtn"
         android:layout_width="90dp"
         android:layout_height="40dp"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="320dp"
         android:layout_marginLeft="120dp"
         android:text = "공지"
         android:background="@drawable/rounded_radius_30"
         ></Button>
     <Button
-        android:id="@+id/mypage_QNAbtn"
+        android:id="@+id/myPage_QNABtn"
         android:layout_width="90dp"
         android:layout_height="40dp"
-        android:layout_marginTop="380dp"
+        android:layout_marginTop="440dp"
         android:layout_marginLeft="120dp"
         android:text = "문의"
         android:background="@drawable/rounded_radius_30"
@@ -55,14 +55,14 @@
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="320dp"
         android:layout_marginLeft="40dp"
         android:src="@drawable/clipboard_text"
         />
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="380dp"
+        android:layout_marginTop="440dp"
         android:layout_marginLeft="40dp"
         android:src="@drawable/question_bubble_svg"
         />

@@ -6,7 +6,7 @@
     tools:context=".map">
 
     <ImageButton
-        android:id="@+id/map_searchbtn"
+        android:id="@+id/map_searchBtn"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginLeft="350dp"
