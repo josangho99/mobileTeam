@@ -55,20 +55,20 @@
         android:layout_height="40dp"
         android:layout_marginTop="200dp"
         android:layout_marginLeft="40dp"
-        android:src="@drawable/flag"
-        app:tint="@android:color/holo_green_light" />
+        android:src="@drawable/light_bulb_svg"
+         />
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="290dp"
         android:layout_marginLeft="40dp"
-        android:src="@drawable/memo_color"
+        android:src="@drawable/clipboard_text"
         />
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="380dp"
         android:layout_marginLeft="40dp"
-        android:src="@drawable/chat_bubbles_question"
+        android:src="@drawable/question_bubble_svg"
         />
 </FrameLayout>

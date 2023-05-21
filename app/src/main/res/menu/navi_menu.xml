@@ -4,20 +4,20 @@
     <item
         android:id="@+id/communityFragment"
         android:title="커뮤니티"
-        android:icon="@drawable/community"/>
+        android:icon="@drawable/community_svg"/>
 
     <item
         android:id="@+id/centerlistFragment"
         android:title="시설 목록"
-        android:icon="@drawable/list_ui"/>
+        android:icon="@drawable/list_svg"/>
     <item
         android:id="@+id/mapFragment"
         android:title="시설 지도"
-        android:icon="@drawable/map"
+        android:icon="@drawable/map_svg"
         />
     <item
         android:id="@+id/myPageFragment"
         android:title="내 정보"
-        android:icon="@drawable/user"/>
+        android:icon="@drawable/mypage_svg"/>
 
 </menu>
