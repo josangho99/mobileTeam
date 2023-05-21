@@ -1,12 +1,14 @@
 package com.example.teamproject
+
 import android.app.Activity
 import android.os.Bundle
-import com.example.teamproject.databinding.ActivityCommunitywriteBinding
+import com.example.teamproject.databinding.ActivityLoginBinding
 
-class CommunitywriteActivity : Activity() {
+class LoginActivity : Activity(){
+
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
-        var binding = ActivityCommunitywriteBinding.inflate(layoutInflater)
+        var binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 }
