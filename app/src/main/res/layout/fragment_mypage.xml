@@ -13,38 +13,63 @@
         android:layout_marginTop="70dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+<<<<<<< HEAD
         android:text = "로그인 하기"
         android:textStyle="bold"
         android:textSize="15dp"
         android:background="@drawable/rounded"
         ></Button>
+=======
+        android:text="로그인 하기"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:background="@drawable/rounded" />
+
+>>>>>>> c30ee33 (test)
     <Button
         android:id="@+id/myPage_reportBtn"
         android:layout_width="90dp"
         android:layout_height="40dp"
         android:layout_marginTop="200dp"
         android:layout_marginLeft="120dp"
+<<<<<<< HEAD
         android:text = "시설제보"
         android:background="@drawable/rounded_radius_30"
         ></Button>
+=======
+        android:text="시설제보"
+        android:background="@drawable/rounded_radius_30" />
+
+>>>>>>> c30ee33 (test)
     <Button
         android:id="@+id/myPage_noticeBtn"
         android:layout_width="90dp"
         android:layout_height="40dp"
         android:layout_marginTop="320dp"
         android:layout_marginLeft="120dp"
+<<<<<<< HEAD
         android:text = "공지"
         android:background="@drawable/rounded_radius_30"
         ></Button>
+=======
+        android:text="공지"
+        android:background="@drawable/rounded_radius_30" />
+
+>>>>>>> c30ee33 (test)
     <Button
         android:id="@+id/myPage_QNABtn"
         android:layout_width="90dp"
         android:layout_height="40dp"
         android:layout_marginTop="440dp"
         android:layout_marginLeft="120dp"
+<<<<<<< HEAD
         android:text = "문의"
         android:background="@drawable/rounded_radius_30"
         ></Button>
+=======
+        android:text="문의"
+        android:background="@drawable/rounded_radius_30" />
+>>>>>>> c30ee33 (test)
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -66,4 +91,16 @@
         android:layout_marginLeft="40dp"
         android:src="@drawable/question_bubble_svg"
         />
+<<<<<<< HEAD
+=======
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="90dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="560dp"
+        android:layout_marginLeft="120dp"
+        android:background="@drawable/rounded_radius_30"
+        android:text="로그아웃" />
+>>>>>>> c30ee33 (test)
 </FrameLayout>
