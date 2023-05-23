@@ -2,12 +2,6 @@ package com.example.teamproject
 
 import android.app.Activity
 import android.os.Bundle
-<<<<<<< HEAD
-import com.example.teamproject.databinding.ActivityJoinmembershipBinding
-
-class JoinmembershipActivity : Activity(){
-
-=======
 import android.widget.Toast
 import com.example.teamproject.databinding.ActivityJoinmembershipBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -19,14 +13,10 @@ private var auth : FirebaseAuth? = null
 class JoinmembershipActivity : Activity(){
 
 
->>>>>>> c30ee33 (test)
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         var binding = ActivityJoinmembershipBinding.inflate(layoutInflater)
         setContentView(binding.root)
-<<<<<<< HEAD
-    }
-=======
 
         auth = FirebaseAuth.getInstance()
 
@@ -59,5 +49,4 @@ class JoinmembershipActivity : Activity(){
         }
     }
 
->>>>>>> c30ee33 (test)
 }

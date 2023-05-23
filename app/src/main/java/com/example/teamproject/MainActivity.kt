@@ -2,13 +2,6 @@ package com.example.teamproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-<<<<<<< HEAD
-
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-=======
 import com.example.teamproject.databinding.ActivityMainBinding
 import android.content.Intent
 import com.google.firebase.auth.FirebaseAuth
@@ -33,6 +26,5 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             auth?.signOut()
         }
->>>>>>> c30ee33 (test)
     }
 }

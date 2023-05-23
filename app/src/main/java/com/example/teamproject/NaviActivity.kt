@@ -25,11 +25,7 @@ class NaviActivity : AppCompatActivity() {
                 R.id.communityFragment -> setFragment(TAG_COMMUNITY, community())
                 R.id.centerlistFragment -> setFragment(TAG_LIST, centerlist())
                 R.id.myPageFragment-> setFragment(TAG_MYPAGE, mypage())
-<<<<<<< HEAD
-                R.id.mapFragment -> setFragment(TAG_MAP,map())
-=======
                 R.id.mapFragment -> setFragment(TAG_MAP, map())
->>>>>>> c30ee33 (test)
             }
             true
         }
