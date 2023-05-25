@@ -10,7 +10,13 @@ public class CommnunityItem {
     private String writer;
     private String place;
     private String date;
-
+    CommnunityItem(){}
+    public CommnunityItem(String title, String writer, String place, String date){
+        this.title = title;
+        this.writer = writer;
+        this.place = place;
+        this.date = date;
+    }
     public String getTitle(){
         return title;
     }
@@ -45,7 +51,7 @@ public class CommnunityItem {
     @NotNull
     public static ArrayList<CommnunityItem> createContactsList(int numContacts) {
         ArrayList<CommnunityItem> contacts = new ArrayList<>();
-
+        contacts.add(new CommnunityItem("제목","작성자","장소","일시")); // 1번째 아이템 <-이 형태로 글 수정하면 됨
         for(int i =1; i <= numContacts; i++){
             contacts.add(new CommnunityItem());
         }
