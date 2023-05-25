@@ -12,6 +12,7 @@
         android:layout_marginTop="80dp"
         android:layout_marginLeft="20dp"
         android:text = "아이디"
+        android:textColor="#797C80"
         android:layout_marginRight="20dp"
         ></TextView>
 
@@ -22,7 +23,8 @@
 
         <EditText
             android:id="@+id/join_id"
-            android:layout_width="300dp"
+            android:layout_width="280dp"
+            android:textColor="@color/black"
             android:layout_height="60dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
@@ -30,10 +32,13 @@
 
         <Button
             android:id="@+id/join_idCheckBtn"
-            android:layout_width="60dp"
+            android:layout_width="58dp"
             android:layout_height="55dp"
+            android:textColor="@color/white"
             android:text="중복확인"
-            android:textSize="13dp"></Button>
+            app:backgroundTint="#3333FF"
+            android:backgroundTint="#3333FF"
+            android:textSize="13sp"></Button>
     </LinearLayout>
 
     <TextView
@@ -42,12 +47,14 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:text = "비밀번호"
+        android:textColor="#797C80"
         android:layout_marginRight="20dp"
         ></TextView>
 
     <EditText
         android:id ="@+id/join_pw"
         android:inputType="textPassword"
+        android:textColor="@color/black"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginLeft="20dp"
@@ -61,6 +68,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:text = "비밀번호 확인"
+        android:textColor="#797C80"
         android:layout_marginRight="20dp"
         ></TextView>
 
@@ -70,6 +78,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginLeft="20dp"
+        android:textColor="@color/black"
         android:layout_marginTop="5dp"
         android:layout_marginRight="20dp"
         >
@@ -88,6 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
+        android:textColor="#797C80"
         android:layout_marginRight="20dp"
         android:text="닉네임"
         ></TextView>
@@ -98,18 +108,22 @@
 
         <EditText
             android:id="@+id/join_nickname"
-            android:layout_width="300dp"
+            android:layout_width="280dp"
             android:layout_height="60dp"
             android:layout_marginLeft="20dp"
+            android:textColor="@color/black"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"></EditText>
 
         <Button
             android:id="@+id/join_nicknameCheck"
-            android:layout_width="60dp"
+            android:layout_width="58dp"
             android:layout_height="55dp"
             android:text="중복확인"
-            android:textSize="13dp"></Button>
+            android:backgroundTint="#3333FF"
+            android:textColor="@color/white"
+            app:backgroundTint="#3333FF"
+            android:textSize="13sp"></Button>
     </LinearLayout>
     <Button
         android:id="@+id/join_joinbtn"
@@ -119,8 +133,11 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text = "회원가입"
+        android:backgroundTint="#3333FF"
+        app:backgroundTint="#3333FF"
+        android:textColor="@color/white"
         android:textStyle="bold"
-        android:textSize="18dp"
+        android:textSize="20dp"
         android:background="@drawable/rounded">
     </Button>
 </LinearLayout>
