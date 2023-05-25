@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/white"
     android:layout_width="match_parent"
@@ -11,6 +12,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginLeft="20dp"
         android:text = "아이디"
+        android:textColor="#797C80"
         android:layout_marginRight="20dp"
         ></TextView>
 
@@ -30,6 +32,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginLeft="20dp"
         android:text = "비밀번호"
+        android:textColor="#797C80"
         android:layout_marginRight="20dp"
         ></TextView>
 
@@ -48,27 +51,29 @@
 
     <Button
         android:id="@+id/login_joinBtn"
-        android:layout_width="100dp"
+        android:layout_width="90dp"
         android:layout_height="40dp"
-        android:layout_marginLeft="300dp"
+        android:layout_marginLeft="280dp"
         android:layout_marginTop="25dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="40dp"
+        android:background="#00ff0000"
         android:backgroundTint="@color/white"
         android:text="회원가입"
-        android:textSize = "14dp"
-        android:textColor ="#797C80"
-        android:background="#00ff0000"
-        >
-    </Button>
+        android:textColor="#797C80"
+        android:textSize="14dp"></Button>
+
     <Button
         android:id="@+id/login_loginBtn"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="150dp"
+        app:backgroundTint="#3333FF"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text = "로그인 하기"
         android:textStyle="bold"
+        android:textColor="@color/white"
+        android:backgroundTint="#3333FF"
         android:textSize="18dp"
         android:background="@drawable/rounded">
     </Button>

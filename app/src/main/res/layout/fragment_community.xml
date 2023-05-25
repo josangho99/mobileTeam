@@ -10,7 +10,7 @@
         android:id="@+id/community_writeBtn"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginLeft="360dp"
+        android:layout_marginLeft="325dp"
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/white"
         android:src="@drawable/write_svg"></ImageButton>
