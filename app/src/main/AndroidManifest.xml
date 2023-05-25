@@ -35,8 +35,6 @@
             </intent-filter>
         </activity>
 
-
-
         <activity android:name=".CommunityitemActivity"></activity>
         <activity android:name=".JoinmembershipActivity"></activity>
         <activity android:name=".CommunitywriteActivity"></activity>
