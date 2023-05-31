@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".mypage">
@@ -14,8 +15,11 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="로그인 하기"
+        android:textColor="@color/white"
         android:textStyle="bold"
+        app:backgroundTint="#3333FF"
         android:textSize="15dp"
+        android:backgroundTint="#3333FF"
         android:background="@drawable/rounded" />
 
     <Button
@@ -24,7 +28,10 @@
         android:layout_height="40dp"
         android:layout_marginTop="200dp"
         android:layout_marginLeft="120dp"
+        android:backgroundTint="#3333FF"
+        app:backgroundTint="#3333FF"
         android:text="시설제보"
+        android:textColor="@color/white"
         android:background="@drawable/rounded_radius_30" />
 
     <Button
@@ -34,6 +41,9 @@
         android:layout_marginTop="320dp"
         android:layout_marginLeft="120dp"
         android:text="공지"
+        app:backgroundTint="#3333FF"
+        android:backgroundTint="#3333FF"
+        android:textColor="@color/white"
         android:background="@drawable/rounded_radius_30" />
 
     <Button
@@ -41,7 +51,10 @@
         android:layout_width="90dp"
         android:layout_height="40dp"
         android:layout_marginTop="440dp"
+        android:backgroundTint="#3333FF"
+        android:textColor="@color/white"
         android:layout_marginLeft="120dp"
+        app:backgroundTint="#3333FF"
         android:text="문의"
         android:background="@drawable/rounded_radius_30" />
     <ImageView
@@ -49,6 +62,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="200dp"
         android:layout_marginLeft="40dp"
+        android:backgroundTint="#3333FF"
         android:src="@drawable/light_bulb_svg"
          />
     <ImageView
@@ -56,12 +70,14 @@
         android:layout_height="40dp"
         android:layout_marginTop="320dp"
         android:layout_marginLeft="40dp"
+        android:backgroundTint="#3333FF"
         android:src="@drawable/clipboard_text"
         />
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="440dp"
+        android:backgroundTint="#3333FF"
         android:layout_marginLeft="40dp"
         android:src="@drawable/question_bubble_svg"
         />
@@ -71,7 +87,9 @@
         android:layout_width="90dp"
         android:layout_height="40dp"
         android:layout_marginTop="560dp"
+        android:textColor="@color/white"
         android:layout_marginLeft="120dp"
+        app:backgroundTint="#3333FF"
         android:background="@drawable/rounded_radius_30"
         android:text="로그아웃" />
 </FrameLayout>

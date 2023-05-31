@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".community">
 
@@ -9,7 +10,7 @@
         android:id="@+id/community_writeBtn"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginLeft="360dp"
+        android:layout_marginLeft="325dp"
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/white"
         android:src="@drawable/write_svg"></ImageButton>
@@ -19,6 +20,8 @@
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:id="@+id/community_items"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

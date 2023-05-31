@@ -1,15 +1,14 @@
 package com.example.teamproject
 
-import android.annotation.SuppressLint
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageButton
-import com.example.teamproject.databinding.ActivityNaviBinding
+import android.widget.Toast
 import com.example.teamproject.databinding.FragmentMypageBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -50,10 +49,18 @@ class mypage : Fragment() {
             startActivity(intent)
         }
         binding.logout.setOnClickListener {
-            //firebase auth에서 sign out 기능 호출
-            auth!!.signOut()
-            var intent=Intent(activity,LoginActivity::class.java) //로그인 페이지 이동
-            startActivity(intent)
+            if(auth?.currentUser == null) {
+                Toast.makeText(context, "로그인 상태가 아닙니다.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            else {
+                //firebase auth에서 sign out 기능 호출
+                Log.i(TAG,"파이어베이스 로그아웃 성공")
+                auth!!.signOut()
+                var intent = Intent(activity, LoginActivity::class.java) //로그인 페이지 이동
+                startActivity(intent)
+            }
         }
 
         // 3. 프래그먼트 레이아웃 뷰 반환
