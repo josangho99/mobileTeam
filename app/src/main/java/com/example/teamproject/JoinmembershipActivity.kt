@@ -2,6 +2,7 @@ package com.example.teamproject
 
 import android.app.Activity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.example.teamproject.databinding.ActivityJoinmembershipBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -20,9 +21,11 @@ class JoinmembershipActivity : Activity(){
 
         auth = FirebaseAuth.getInstance()
 
-
         binding.joinJoinbtn.setOnClickListener {
             createAccount(binding.joinId.text.toString(),binding.joinPw.text.toString())
+        }
+        binding.joinIdCheckBtn.setOnClickListener {
+
         }
 
     }
@@ -47,6 +50,20 @@ class JoinmembershipActivity : Activity(){
                     }
                 }
         }
+        else if(isCheckPw()){
+            Toast.makeText(this,"이메일과 비밀번호를 입력하십시오.",Toast.LENGTH_LONG).show()
+        }
+        else{
+            Toast.makeText(this,"비밀번호가 일치하지 않습니다.",Toast.LENGTH_LONG).show()
+        }
+    }
+    private fun isCheckPw(): Boolean { //비밀번호 확인
+        var binding = ActivityJoinmembershipBinding.inflate(layoutInflater)
+        if(binding.joinPwCheck.text.toString() == binding.joinPw.text.toString()){
+            binding.joinPwCheckResult.visibility = View.VISIBLE
+            return true
+        }
+        return false
     }
 
 }

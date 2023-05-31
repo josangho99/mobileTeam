@@ -28,7 +28,9 @@
             android:layout_height="60dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
-            android:layout_marginRight="10dp"></EditText>
+            android:layout_marginRight="10dp">
+
+        </EditText>
 
         <Button
             android:id="@+id/join_idCheckBtn"
@@ -38,7 +40,9 @@
             android:text="중복확인"
             app:backgroundTint="#3333FF"
             android:backgroundTint="#3333FF"
-            android:textSize="13sp"></Button>
+            android:textSize="13sp">
+
+        </Button>
     </LinearLayout>
 
     <TextView
@@ -49,7 +53,9 @@
         android:text = "비밀번호"
         android:textColor="#797C80"
         android:layout_marginRight="20dp"
-        ></TextView>
+        >
+
+    </TextView>
 
     <EditText
         android:id ="@+id/join_pw"
@@ -70,7 +76,9 @@
         android:text = "비밀번호 확인"
         android:textColor="#797C80"
         android:layout_marginRight="20dp"
-        ></TextView>
+        >
+
+    </TextView>
 
     <EditText
         android:id ="@+id/join_pwCheck"
@@ -90,8 +98,11 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:textColor="#0000FF"
+        android:visibility="invisible"
         android:text="비밀번호가 일치합니다"
-        ></TextView>
+        >
+
+    </TextView>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -100,7 +111,9 @@
         android:textColor="#797C80"
         android:layout_marginRight="20dp"
         android:text="닉네임"
-        ></TextView>
+        >
+
+    </TextView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="72dp"
@@ -113,7 +126,9 @@
             android:layout_marginLeft="20dp"
             android:textColor="@color/black"
             android:layout_marginTop="5dp"
-            android:layout_marginRight="10dp"></EditText>
+            android:layout_marginRight="10dp">
+
+        </EditText>
 
         <Button
             android:id="@+id/join_nicknameCheck"
@@ -123,7 +138,9 @@
             android:backgroundTint="#3333FF"
             android:textColor="@color/white"
             app:backgroundTint="#3333FF"
-            android:textSize="13sp"></Button>
+            android:textSize="13sp">
+
+        </Button>
     </LinearLayout>
     <Button
         android:id="@+id/join_joinbtn"
