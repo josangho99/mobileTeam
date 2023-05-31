@@ -76,6 +76,7 @@ class LoginActivity : AppCompatActivity() {
         moveMainPage(auth?.currentUser)
     }
 
+    // 카카오 로그인
     fun kakaologin(){
         val callback: (
             OAuthToken?, Throwable?) -> Unit = { token, error ->
@@ -83,6 +84,8 @@ class LoginActivity : AppCompatActivity() {
                 Log.e(TAG, "카카오계정으로 로그인 실패", error)
             } else if (token != null) {
                 Log.i(TAG, "카카오계정으로 로그인 성공 ${token.accessToken}")
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
             }
         }
 
@@ -102,7 +105,8 @@ class LoginActivity : AppCompatActivity() {
                     UserApiClient.instance.loginWithKakaoAccount(applicationContext, callback = callback)
                 } else if (token != null) {
                     Log.i(TAG, "카카오톡으로 로그인 성공 ${token.accessToken}")
-                    moveMainPage(auth?.currentUser)
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
 
                 }
             }

@@ -38,6 +38,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 else {
                     Log.i(TAG, "로그아웃 성공. SDK에서 토큰 삭제됨")
+                    val intent = Intent(this, NaviActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    startActivity(intent)
                 }
             }
 
