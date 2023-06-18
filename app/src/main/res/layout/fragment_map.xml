@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".map">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clKakaoMapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <ImageButton
         android:id="@+id/map_searchBtn"
         android:layout_width="30dp"
@@ -16,7 +21,6 @@
         android:backgroundTint="@color/white"
         android:background="@drawable/circle"
         android:src="@drawable/search_svg">
-
     </ImageButton>
 
 </FrameLayout>

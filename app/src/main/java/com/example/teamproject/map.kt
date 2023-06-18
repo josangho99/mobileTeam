@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.teamproject.databinding.FragmentMapBinding
+import net.daum.mf.map.api.MapView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,8 +35,15 @@ class map : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val binding = FragmentMapBinding.inflate(inflater, container, false)
+        context ?: return binding.root
+
+        val mapView = MapView(context)
+        binding.clKakaoMapView.addView(mapView)
+
+        return binding.root
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_map, container, false)
+        //return inflater.inflate(R.layout.fragment_map, container, false)
     }
 
     companion object {
