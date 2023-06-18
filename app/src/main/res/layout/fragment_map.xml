@@ -9,10 +9,12 @@
     <ImageButton
         android:id="@+id/map_searchBtn"
         android:layout_width="30dp"
+        android:padding="3dp"
         android:layout_height="30dp"
         android:layout_marginLeft="320dp"
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/white"
+        android:background="@drawable/circle"
         android:src="@drawable/search_svg">
 
     </ImageButton>
