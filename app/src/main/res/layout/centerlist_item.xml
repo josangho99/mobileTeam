@@ -5,18 +5,17 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="10dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp"
     android:background="@drawable/rounded"
-    android:backgroundTint="#D9D9D9"
+    android:backgroundTint="@color/white"
     android:id="@+id/center_item">
 
     <ImageView
-        android:layout_marginTop="8sp"
-        android:layout_marginLeft="5dp"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
+        android:layout_width="145dp"
+        android:layout_height="145dp"
         android:id = "@+id/center_image"
+        app:background="@drawable/rounded_radius_30"
         android:scaleType="centerCrop"
         >
     </ImageView>
@@ -32,9 +31,9 @@
         android:id="@+id/center_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8sp"
+        android:layout_marginTop="4sp"
         android:layout_marginLeft="8sp"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/black"
         tools:text="센터이름 " />
@@ -47,8 +46,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="16sp"
-            android:layout_marginBottom="10dp"
+            android:textSize="15sp"
+            android:layout_marginBottom="12dp"
             android:layout_marginLeft="8sp"
             tools:text="위치" ></TextView>
 
@@ -56,7 +55,7 @@
             android:id="@+id/center_rating"
             style="?android:attr/ratingBarStyleIndicator"
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_height="30dp"
             android:layout_marginStart="8dp"
             android:numStars="5"
             android:isIndicator="true"
@@ -73,10 +72,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="20sp"
+            android:layout_marginTop="30sp"
             android:gravity="bottom"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="15sp"
             tools:text="카테고리" />
 
     </LinearLayout>
