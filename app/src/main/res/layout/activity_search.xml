@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".SearchActivity">
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:background="@color/white"
+        android:layout_marginLeft="20dp"
+        android:text = "운동 검색"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        >
+    </TextView>
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        android:backgroundTint="#EAF0F7"
+        android:background="@drawable/rounded"
+        >
+        <EditText
+            android:id="@+id/search_searchText"
+            android:layout_width="320dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="7dp"
+            android:background="@drawable/rounded"
+            android:backgroundTint="#EAF0F7"
+            />
+
+        <ImageButton
+            android:id ="@+id/search_searchBtn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="13dp"
+            android:backgroundTint="#EAF0F7"
+            android:src="@drawable/search_svg">
+        </ImageButton>
+    </LinearLayout>>
+
+    <TextView
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="카테고리 검색"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="50dp"
+        >
+    </TextView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/search_items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        />
+
+</LinearLayout>

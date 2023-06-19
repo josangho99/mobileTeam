@@ -7,27 +7,22 @@
     android:layout_height="match_parent"
     tools:context=".mypage">
     <TextView
-        android:id="@+id/login_status"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="test"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="130dp"
+        android:text="시흥시 바로운동"
         android:textSize="20dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:backgroundTint="#3333FF"
-        android:backgroundTint="#3333FF"
-        android:background="@drawable/rounded"/>
+        android:textColor="@color/black"
+        ></TextView>
 
     <Button
         android:id="@+id/myPage_loginBtn"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:text="로그인 하기"
         android:textColor="@color/white"
         android:textStyle="bold"
@@ -36,15 +31,45 @@
         android:backgroundTint="#3333FF"
         android:background="@drawable/rounded" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginLeft="40dp"
+        android:text="시설제보를 통해 공유해주세요"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        ></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="360dp"
+        android:layout_marginLeft="40dp"
+        android:text="공지사항을 확인하세요"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        ></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginLeft="40dp"
+        android:text="무엇이든 물어보세요"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        ></TextView>
+
     <Button
         android:id="@+id/myPage_reportBtn"
         android:layout_width="90dp"
         android:layout_height="40dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="260dp"
         android:layout_marginLeft="120dp"
         android:backgroundTint="#3333FF"
         app:backgroundTint="#3333FF"
-        android:text="시설제보"
+        android:text="제보하기"
         android:textColor="@color/white"
         android:background="@drawable/rounded_radius_30" />
 
@@ -52,9 +77,9 @@
         android:id="@+id/myPage_noticeBtn"
         android:layout_width="90dp"
         android:layout_height="40dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="400dp"
         android:layout_marginLeft="120dp"
-        android:text="공지"
+        android:text="공지확인"
         app:backgroundTint="#3333FF"
         android:backgroundTint="#3333FF"
         android:textColor="@color/white"
@@ -64,17 +89,17 @@
         android:id="@+id/myPage_QNABtn"
         android:layout_width="90dp"
         android:layout_height="40dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="540dp"
         android:backgroundTint="#3333FF"
         android:textColor="@color/white"
         android:layout_marginLeft="120dp"
         app:backgroundTint="#3333FF"
-        android:text="문의"
+        android:text="문의하기"
         android:background="@drawable/rounded_radius_30" />
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="260dp"
         android:layout_marginLeft="40dp"
         android:backgroundTint="#3333FF"
         android:src="@drawable/light_bulb_svg"
@@ -82,7 +107,7 @@
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="400dp"
         android:layout_marginLeft="40dp"
         android:backgroundTint="#3333FF"
         android:src="@drawable/clipboard_text"
@@ -90,7 +115,7 @@
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="540dp"
         android:backgroundTint="#3333FF"
         android:layout_marginLeft="40dp"
         android:src="@drawable/question_bubble_svg"
@@ -100,7 +125,7 @@
         android:id="@+id/logout"
         android:layout_width="90dp"
         android:layout_height="40dp"
-        android:layout_marginTop="560dp"
+        android:layout_marginTop="640dp"
         android:textColor="@color/white"
         android:layout_marginLeft="120dp"
         app:backgroundTint="#3333FF"

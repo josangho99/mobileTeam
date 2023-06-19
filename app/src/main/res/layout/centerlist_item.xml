@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4sp"
         android:layout_marginLeft="8sp"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="@color/black"
         tools:text="센터이름 " />
@@ -46,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:layout_marginBottom="12dp"
             android:layout_marginLeft="8sp"
             tools:text="위치" ></TextView>
@@ -55,11 +55,12 @@
             android:id="@+id/center_rating"
             style="?android:attr/ratingBarStyleIndicator"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="35dp"
             android:layout_marginStart="8dp"
             android:numStars="5"
             android:isIndicator="true"
             android:progressTint="#F2C202"
+            android:progressBackgroundTint="#797C80"
             android:stepSize="0.5"
             android:rating="0"
             android:textColor="@color/black"
@@ -69,13 +70,14 @@
 
         <TextView
             android:id="@+id/center_category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="30sp"
-            android:gravity="bottom"
+            android:layout_marginTop="20sp"
+            android:gravity="center"
+            android:background="@drawable/circle"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="12sp"
             tools:text="카테고리" />
 
     </LinearLayout>
