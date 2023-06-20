@@ -18,10 +18,10 @@
 
     <ImageButton
         android:id = "@+id/centerlist_searchBtn"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="320dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="340dp"
+        android:layout_marginTop="22.5dp"
         android:backgroundTint="@color/white"
         android:src="@drawable/search_svg">
     </ImageButton>

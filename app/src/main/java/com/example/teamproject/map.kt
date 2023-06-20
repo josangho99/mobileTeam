@@ -1,12 +1,29 @@
 package com.example.teamproject
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Context.MODE_PRIVATE
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationManager
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
 import com.example.teamproject.databinding.FragmentMapBinding
+import net.daum.mf.map.api.MapPOIItem
+import net.daum.mf.map.api.MapPoint
 import net.daum.mf.map.api.MapView
+import net.daum.mf.map.n.api.internal.NativeMapLocationManager.setShowCurrentLocationMarker
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +39,9 @@ class map : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private val ACCESS_FINE_LOCATION = 1000     // Request Code
+    private var yes = false//test용
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +60,31 @@ class map : Fragment() {
 
         val mapView = MapView(context)
         binding.clKakaoMapView.addView(mapView)
+
+
+
+        if (ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+            val lm: LocationManager = requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
+            val userNowLocation: Location? = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+            val uLatitude = userNowLocation?.latitude
+            val uLongitude = userNowLocation?.longitude
+            val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude!!, uLongitude!!)
+            mapView.setMapCenterPoint(uNowPosition, true)
+        }
+
+        //mylocation버튼을 누르면 현재위치로 지도 이동
+        binding.myLocationBtn.setOnClickListener(){
+            if (ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {//권한이 없는 상태
+                requestPermissions(arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), ACCESS_FINE_LOCATION) // 권한 요청
+            } else { // 권한이 있는 상태
+                val lm: LocationManager = requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
+                val userNowLocation: Location? = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+                val uLatitude = userNowLocation?.latitude
+                val uLongitude = userNowLocation?.longitude
+                val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude!!, uLongitude!!)
+                mapView.setMapCenterPoint(uNowPosition, true)
+            }
+        }
 
         return binding.root
         // Inflate the layout for this fragment
