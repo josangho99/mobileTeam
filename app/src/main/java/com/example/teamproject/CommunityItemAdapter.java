@@ -1,13 +1,16 @@
 package com.example.teamproject;
 
-import androidx.fragment.app.FragmentActivity;
-import androidx.recyclerview.widget.RecyclerView;
+import static android.content.ContentValues.TAG;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -17,7 +20,10 @@ public class CommunityItemAdapter extends RecyclerView.Adapter<CommunityItemAdap
     public CommunityItemAdapter(FragmentActivity requireActivity, ArrayList<CommunityItem> items) {
         this.items = items;
     }
-
+    public void addList(ArrayList<CommunityItem> item) {
+        this.items = item;
+        Log.d(TAG, "addFaqList: add 확인: "+items);
+    }
     @Override
     public BoardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // ViewHodler 객체를 생성 후 리턴한다.

@@ -51,7 +51,7 @@ public class CommunityItem {
     @NotNull
     public static ArrayList<CommunityItem> createContactsList(int numContacts) {
         ArrayList<CommunityItem> contacts = new ArrayList<>();
-        contacts.add(new CommunityItem("제목","작성자","장소","일시")); // 1번째 아이템 <-이 형태로 글 수정하면 됨
+        //contacts.add(new CommunityItem("제목","작성자","장소","일시")); // 1번째 아이템 <-이 형태로 글 수정하면 됨
         for(int i =1; i <= numContacts; i++){
             contacts.add(new CommunityItem());
         }
