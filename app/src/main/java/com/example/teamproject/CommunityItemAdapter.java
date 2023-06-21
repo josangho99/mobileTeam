@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
 public class CommunityItemAdapter extends RecyclerView.Adapter<CommunityItemAdapter.BoardViewHolder> {
     // 해당 어댑터의 ViewHolder를 상속받는다.
-     ArrayList<CommnunityItem> items;
-    public CommunityItemAdapter(FragmentActivity requireActivity, ArrayList<CommnunityItem> items) {
+     ArrayList<CommunityItem> items;
+    public CommunityItemAdapter(FragmentActivity requireActivity, ArrayList<CommunityItem> items) {
         this.items = items;
     }
 
@@ -27,7 +27,7 @@ public class CommunityItemAdapter extends RecyclerView.Adapter<CommunityItemAdap
     @Override
     public void onBindViewHolder(@NonNull BoardViewHolder holder, int position) {
         // ViewHolder 가 재활용 될 때 사용되는 메소드
-        CommnunityItem item = items.get(position);
+        CommunityItem item = items.get(position);
         holder.title.setText(item.getTitle());
         holder.writer.setText(item.getWriter());
         holder.place.setText(item.getPlace());

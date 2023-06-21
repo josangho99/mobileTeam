@@ -1,7 +1,6 @@
 package com.example.teamproject
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -21,7 +20,7 @@ class community : Fragment() {
     // TODO: Rename and change types of parameters
     private lateinit var communityRecyclerView: RecyclerView
     private lateinit var adapter: CommunityItemAdapter
-    private var clist: ArrayList<CommnunityItem> = ArrayList()
+    private var clist: ArrayList<CommunityItem> = ArrayList()
     private var clistSize = clist.size // 글의 갯수
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +36,7 @@ class community : Fragment() {
     ): View? {
         var rootView: ViewGroup = inflater.inflate(R.layout.fragment_community, container, false) as ViewGroup
         communityRecyclerView = rootView.findViewById(R.id.community_items)
-        clist = CommnunityItem.createContactsList(clistSize) // 글의 갯수
+        clist = CommunityItem.createContactsList(clistSize) // 글의 갯수
         communityRecyclerView.setHasFixedSize(true)
         adapter = CommunityItemAdapter(requireActivity(), clist)
         communityRecyclerView.layoutManager = LinearLayoutManager(requireActivity())

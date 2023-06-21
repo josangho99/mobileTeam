@@ -4,14 +4,14 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class CommnunityItem {
+public class CommunityItem {
 
     private String title;
     private String writer;
     private String place;
     private String date;
-    CommnunityItem(){}
-    public CommnunityItem(String title, String writer, String place, String date){
+    CommunityItem(){}
+    public CommunityItem(String title, String writer, String place, String date){
         this.title = title;
         this.writer = writer;
         this.place = place;
@@ -49,11 +49,11 @@ public class CommnunityItem {
     }
 
     @NotNull
-    public static ArrayList<CommnunityItem> createContactsList(int numContacts) {
-        ArrayList<CommnunityItem> contacts = new ArrayList<>();
-        contacts.add(new CommnunityItem("제목","작성자","장소","일시")); // 1번째 아이템 <-이 형태로 글 수정하면 됨
+    public static ArrayList<CommunityItem> createContactsList(int numContacts) {
+        ArrayList<CommunityItem> contacts = new ArrayList<>();
+        contacts.add(new CommunityItem("제목","작성자","장소","일시")); // 1번째 아이템 <-이 형태로 글 수정하면 됨
         for(int i =1; i <= numContacts; i++){
-            contacts.add(new CommnunityItem());
+            contacts.add(new CommunityItem());
         }
 
         return contacts;
