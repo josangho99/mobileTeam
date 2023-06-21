@@ -5,26 +5,37 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".centerlist">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="130dp"
+        android:text="시흥시 바로운동"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        ></TextView>
+
     <ImageButton
         android:id = "@+id/centerlist_searchBtn"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="320dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="340dp"
+        android:layout_marginTop="22.5dp"
         android:backgroundTint="@color/white"
         android:src="@drawable/search_svg">
     </ImageButton>
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="90dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/centerlist_items"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="60dp">
+            android:layout_marginRight="20dp">
         </androidx.recyclerview.widget.RecyclerView>
     </ScrollView>
 

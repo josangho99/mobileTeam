@@ -6,15 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".map">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clKakaoMapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <ImageButton
         android:id="@+id/map_searchBtn"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="320dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="45dp"
+        android:padding="3dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="340dp"
+        android:layout_marginTop="22.5dp"
         android:backgroundTint="@color/white"
+        android:background="@drawable/circle"
         android:src="@drawable/search_svg">
+    </ImageButton>
 
+    <ImageButton
+        android:id="@+id/my_locationBtn"
+        android:layout_width="45dp"
+        android:padding="3dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="670dp"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/circle"
+        android:src="@drawable/mylocation_svg">
     </ImageButton>
 
 </FrameLayout>

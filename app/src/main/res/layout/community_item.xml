@@ -7,7 +7,7 @@
     android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
     android:background="@drawable/rounded"
-    android:backgroundTint="#D9D9D9"
+    android:backgroundTint="#3333FF"
     android:id="@+id/item">
 
     <TextView
@@ -18,28 +18,28 @@
         android:layout_marginLeft="8sp"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
-        tools:text="제목: " />
+        android:textColor="@color/white"
+        tools:text="제목:" />
 
     <TextView
         android:id="@+id/item_writer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:layout_marginLeft="8sp"
         android:maxLines="1"
         android:ellipsize="end"
-        tools:text="작성자: " />
+        tools:text="작성자:" />
 
     <TextView
         android:id="@+id/item_place"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="16sp"
-        tools:text="위치: " />
+        tools:text="위치:" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -52,9 +52,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16sp"
-            tools:text="일시: " />
+            tools:text="일시:" />
 
     </LinearLayout>
 

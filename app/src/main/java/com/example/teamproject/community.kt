@@ -11,8 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+
 /**
  * A simple [Fragment] subclass.
  * Use the [community.newInstance] factory method to
@@ -23,15 +22,12 @@ class community : Fragment() {
     private lateinit var communityRecyclerView: RecyclerView
     private lateinit var adapter: CommunityItemAdapter
     private var clist: ArrayList<CommnunityItem> = ArrayList()
-    private var param1: String? = null
-    private var param2: String? = null
-    private var clistSize = 10; // 글의 갯수 <- 커뮤니티 글의 수에 따라 수정 필요
+    private var clistSize = clist.size // 글의 갯수
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
         }
     }
 
@@ -64,8 +60,6 @@ class community : Fragment() {
         fun newInstance(param1: String, param2: String) =
             community().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
                 }
             }
     }

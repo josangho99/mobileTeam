@@ -4,7 +4,8 @@
     package="com.example.teamproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -13,21 +14,17 @@
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.TeamProject"
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config"
         tools:targetApi="31"
         tools:ignore="ExtraText">
 
         <activity
             android:name=".LoginActivity"
-            android:exported="true">
-
-        </activity>
-
+            android:exported="true"></activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
-
+            android:exported="true"></activity>
         <activity
             android:name=".NaviActivity"
             android:exported="true">
@@ -55,12 +52,11 @@
         </activity>
 
 
+        <activity android:name=".CommunityitemActivity" />
+        <activity android:name=".JoinmembershipActivity" />
+        <activity android:name=".CommunitywriteActivity" />
 
-        <activity android:name=".CommunityitemActivity"></activity>
-        <activity android:name=".JoinmembershipActivity"></activity>
-        <activity android:name=".CommunitywriteActivity"></activity>
-
-
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="25bcb8fd5bdd44eac10033331683c387"/>
     </application>
 
 </manifest>
