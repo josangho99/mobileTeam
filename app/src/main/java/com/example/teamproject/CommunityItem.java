@@ -10,12 +10,16 @@ public class CommunityItem {
     private String writer;
     private String place;
     private String date;
+    private String content;
     CommunityItem(){}
-    public CommunityItem(String title, String writer, String place, String date){
+
+    //제목,작성자,위치,날짜,내용순
+    public CommunityItem(String title, String writer, String place, String date, String content){
         this.title = title;
         this.writer = writer;
         this.place = place;
         this.date = date;
+        this.content = content;
     }
     public String getTitle(){
         return title;
@@ -46,6 +50,14 @@ public class CommunityItem {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     @NotNull

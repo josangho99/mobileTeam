@@ -2,14 +2,17 @@ package com.example.teamproject
 
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.teamproject.databinding.FragmentCommunityBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
 
@@ -27,13 +30,20 @@ class community : Fragment() {
     private lateinit var adapter: CommunityItemAdapter
     private var clist: ArrayList<CommunityItem> = ArrayList()
     private var clistSize = clist.size // 글의 갯수
-
+    lateinit var binding : FragmentCommunityBinding
+    private lateinit var write_btn : ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
         }
+        adapter = CommunityItemAdapter(requireActivity(), clist)
+        adapter.setOnItemClickListener(object : CommunityItemAdapter.OnItemClickListener {
+            override fun onItemClick(v: View?, position: Int) {
+            }
+        })
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,11 +53,21 @@ class community : Fragment() {
         clist = CommunityItem.createContactsList(clistSize) // 글의 갯수
         communityRecyclerView.setHasFixedSize(true)
         initData()
-        adapter = CommunityItemAdapter(requireActivity(), clist)
+
+        //onCreate에서 실행
+        //adapter = CommunityItemAdapter(requireActivity(), clist)
+
         //밑에 initData()에서 실행
-        //communityRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
-        //communityRecyclerView.adapter = adapter
-        // Inflate the layout for this fragment
+        communityRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
+        adapter.notifyDataSetChanged()
+        communityRecyclerView.adapter = adapter
+
+        write_btn = rootView.findViewById(R.id.community_writeBtn)
+        write_btn.setOnClickListener {
+            var intent = Intent(this.context,CommunitywriteActivity::class.java)
+            startActivity(intent)
+        }
+
         return rootView
     }
     @SuppressLint("NotifyDataSetChanged", "SimpleDateFormat")
@@ -61,10 +81,10 @@ class community : Fragment() {
                         val title: String = document["title"].toString()
                         val writer: String = document["writer"].toString()
                         val place: String = document["place"].toString()
-                        val sdf = SimpleDateFormat("YYYY-MM-dd") //pattern 형태로 변환
-                        val date: String = sdf.format(document.getDate("date"))
+                        val content: String = document["content"].toString()
+                        val date: String = document["date"].toString()
                         val e = CommunityItem(
-                            title, writer, place, date
+                            title, writer, place, date, content
                         )
                         clist.add(e)
                     }

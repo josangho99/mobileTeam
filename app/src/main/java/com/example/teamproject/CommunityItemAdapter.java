@@ -2,13 +2,16 @@ package com.example.teamproject;
 
 import static android.content.ContentValues.TAG;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,6 +20,15 @@ import java.util.ArrayList;
 public class CommunityItemAdapter extends RecyclerView.Adapter<CommunityItemAdapter.BoardViewHolder> {
     // 해당 어댑터의 ViewHolder를 상속받는다.
      ArrayList<CommunityItem> items;
+    public interface OnItemClickListener {
+        void onItemClick(View v, int position) ;
+    }
+    private OnItemClickListener mListener = null ;
+
+    // OnItemClickListener 리스너 객체 참조를 어댑터에 전달하는 메서드
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.mListener = listener ;
+    }
     public CommunityItemAdapter(FragmentActivity requireActivity, ArrayList<CommunityItem> items) {
         this.items = items;
     }
@@ -60,6 +72,22 @@ public class CommunityItemAdapter extends RecyclerView.Adapter<CommunityItemAdap
             this.writer = itemView.findViewById(R.id.item_writer);
             this.place = itemView.findViewById(R.id.item_place);
             this.date = itemView.findViewById(R.id.item_date);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition() ;
+                    if (pos != RecyclerView.NO_POSITION) {
+                        if (mListener != null) {
+                            CommunityItem e = items.get(pos);
+                            Intent intent = new Intent(v.getContext(), CommunityitemActivity.class);
+                            intent.putExtra("title",e.getTitle());
+                            //TODO 날짜와 위치 추가하기
+                            intent.putExtra("content",e.getContent());
+                            v.getContext().startActivity(intent);
+                        }
+                    }
+                }
+            });
         }
     }
 }
