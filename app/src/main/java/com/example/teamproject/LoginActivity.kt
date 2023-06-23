@@ -20,13 +20,16 @@ class LoginActivity : AppCompatActivity() {
     lateinit var binding : ActivityLoginBinding
 
     var auth : FirebaseAuth? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         var view = binding.root
         setContentView(view)
 
+
         auth = FirebaseAuth.getInstance()
+
         KakaoSdk.init(this,BuildConfig.KAKAO_NATIVE_APP_KEY)
 
 
@@ -61,11 +64,14 @@ class LoginActivity : AppCompatActivity() {
                 }
         }
     }
+
+
+
     // 로그인이 성공하면 다음 페이지로 넘어가는 함수
     fun moveMainPage(user:FirebaseUser?) {
         // 파이어베이스 유저 상태가 있을 경우 다음 페이지로 넘어갈 수 있음
         if(user != null) {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, NaviActivity::class.java))
             finish()
 
         }
@@ -84,7 +90,7 @@ class LoginActivity : AppCompatActivity() {
                 Log.e(TAG, "카카오계정으로 로그인 실패", error)
             } else if (token != null) {
                 Log.i(TAG, "카카오계정으로 로그인 성공 ${token.accessToken}")
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, NaviActivity::class.java))
                 finish()
             }
         }
@@ -105,7 +111,7 @@ class LoginActivity : AppCompatActivity() {
                     UserApiClient.instance.loginWithKakaoAccount(applicationContext, callback = callback)
                 } else if (token != null) {
                     Log.i(TAG, "카카오톡으로 로그인 성공 ${token.accessToken}")
-                    startActivity(Intent(this, MainActivity::class.java))
+                    startActivity(Intent(this, NaviActivity::class.java))
                     finish()
 
                 }

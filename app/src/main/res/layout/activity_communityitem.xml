@@ -15,6 +15,33 @@
         android:text="제목"
         ></TextView>
     <TextView
+        android:id="@+id/item_writer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:text="작성자"
+        ></TextView>
+    <TextView
+        android:id="@+id/item_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:text="날짜"
+        ></TextView>
+    <TextView
+        android:id="@+id/item_place"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:text="장소"
+        ></TextView>
+    <TextView
         android:id="@+id/item_content"
         android:layout_width="match_parent"
         android:layout_height="480dp"

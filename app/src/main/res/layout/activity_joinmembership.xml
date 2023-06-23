@@ -98,7 +98,6 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:textColor="#0000FF"
-        android:visibility="invisible"
         android:text="비밀번호가 일치합니다"
         >
 

@@ -30,6 +30,22 @@
         android:textSize="15dp"
         android:backgroundTint="#3333FF"
         android:background="@drawable/rounded" />
+    <Button
+        android:id="@+id/myPage_logoutBtn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:text="로그아웃 하기"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:backgroundTint="#3333FF"
+        android:textSize="15dp"
+        android:backgroundTint="#3333FF"
+        android:background="@drawable/rounded"
+        android:visibility="gone"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -120,15 +136,4 @@
         android:layout_marginLeft="40dp"
         android:src="@drawable/question_bubble_svg"
         />
-
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="90dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="640dp"
-        android:textColor="@color/white"
-        android:layout_marginLeft="120dp"
-        app:backgroundTint="#3333FF"
-        android:background="@drawable/rounded_radius_30"
-        android:text="로그아웃" />
 </FrameLayout>

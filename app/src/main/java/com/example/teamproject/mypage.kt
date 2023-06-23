@@ -44,13 +44,23 @@ class mypage : Fragment() {
         val binding = FragmentMypageBinding.inflate(inflater, container, false)
         auth = FirebaseAuth.getInstance()
 
-
+        if(auth?.currentUser == null) {
+            binding.myPageLoginBtn.visibility = View.VISIBLE
+            binding.myPageLogoutBtn.visibility = View.GONE
+        }
+        else if (auth?.currentUser != null) {
+            binding.myPageLoginBtn.visibility = View.GONE
+            binding.myPageLogoutBtn.visibility = View.VISIBLE
+        }
         // 2. 바인딩으로 버튼 접근
         binding.myPageLoginBtn.setOnClickListener {
-            val intent = Intent(context, LoginActivity::class.java)
-            startActivity(intent)
+            if(auth?.currentUser == null) {
+                val intent = Intent(context, LoginActivity::class.java)
+                startActivity(intent)
+            }else
+                Toast.makeText(context,"현재 로그인된 상태입니다",Toast.LENGTH_LONG).show()
         }
-        binding.logout.setOnClickListener {
+        binding.myPageLogoutBtn.setOnClickListener {
             if(auth?.currentUser == null) {
                 Toast.makeText(context, "로그인 상태가 아닙니다.",
                     Toast.LENGTH_SHORT
@@ -60,7 +70,9 @@ class mypage : Fragment() {
                 //firebase auth에서 sign out 기능 호출
                 Log.i(TAG,"파이어베이스 로그아웃 성공")
                 auth!!.signOut()
-                var intent = Intent(activity, LoginActivity::class.java) //로그인 페이지 이동
+                binding.myPageLoginBtn.visibility = View.VISIBLE
+                binding.myPageLogoutBtn.visibility = View.GONE
+                var intent = Intent(activity, LoginActivity::class.java) //네비 페이지 이동
                 startActivity(intent)
             }
         }
