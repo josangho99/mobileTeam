@@ -23,18 +23,21 @@
         android:backgroundTint="@color/white"
         android:src="@drawable/write_svg"></ImageButton>
 
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:id="@+id/community_items"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
-        android:layout_marginBottom="50dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
         >
-    </androidx.recyclerview.widget.RecyclerView>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:id="@+id/community_items"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            >
+        </androidx.recyclerview.widget.RecyclerView>
+    </ScrollView>
 
 </FrameLayout>

@@ -40,9 +40,9 @@
         android:text="로그아웃 하기"
         android:textColor="@color/white"
         android:textStyle="bold"
-        app:backgroundTint="#3333FF"
-        android:textSize="15dp"
-        android:backgroundTint="#3333FF"
+        app:backgroundTint="#00A9FF"
+        android:textSize="18dp"
+        android:backgroundTint="#00A9FF"
         android:background="@drawable/rounded"
         android:visibility="gone"
         />
@@ -88,6 +88,19 @@
         android:text="제보하기"
         android:textColor="@color/white"
         android:background="@drawable/rounded_radius_30" />
+
+    <Button
+        android:id="@+id/myPage_myContent"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="260dp"
+        android:layout_marginLeft="260dp"
+        android:background="@drawable/rounded_radius_30"
+        android:backgroundTint="#00A9FF"
+        android:text="내 글 목록"
+        android:textColor="@color/white"
+        app:backgroundTint="#00A9FF"
+        android:enabled="false"/>
 
     <Button
         android:id="@+id/myPage_noticeBtn"

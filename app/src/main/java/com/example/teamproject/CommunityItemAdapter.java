@@ -2,6 +2,7 @@ package com.example.teamproject;
 
 import static android.content.ContentValues.TAG;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,12 +30,12 @@ public class CommunityItemAdapter extends RecyclerView.Adapter<CommunityItemAdap
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.mListener = listener ;
     }
-    public CommunityItemAdapter(FragmentActivity requireActivity, ArrayList<CommunityItem> items) {
+    public CommunityItemAdapter(FragmentActivity fragmentActivity, ArrayList<CommunityItem> items) {
         this.items = items;
     }
     public void addList(ArrayList<CommunityItem> item) {
         this.items = item;
-        Log.d(TAG, "addFaqList: add 확인: "+items);
+        Log.d(TAG, "addList: add 확인: "+items);
     }
     @Override
     public BoardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -85,6 +86,7 @@ public class CommunityItemAdapter extends RecyclerView.Adapter<CommunityItemAdap
                             intent.putExtra("writer",e.getWriter());
                             intent.putExtra("place",e.getPlace());
                             intent.putExtra("content",e.getContent());
+                            intent.putExtra("sport",e.getSport());
                             v.getContext().startActivity(intent);
                         }
                     }

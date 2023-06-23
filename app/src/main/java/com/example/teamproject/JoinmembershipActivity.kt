@@ -1,11 +1,14 @@
 package com.example.teamproject
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ContentValues
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.util.Patterns
+import android.widget.EditText
 import android.widget.Toast
 import com.example.teamproject.databinding.ActivityJoinmembershipBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -26,6 +29,8 @@ class JoinmembershipActivity : Activity(){
         var binding = ActivityJoinmembershipBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        //비밀번호 일치 확인
         binding.joinPwCheck.addTextChangedListener(object : TextWatcher {
             //입력이 끝났을 때
             //4. 비밀번호 일치하는지 확인
@@ -56,13 +61,17 @@ class JoinmembershipActivity : Activity(){
             }
         })
 
+
+        //회원가입 버튼
         binding.joinJoinbtn.setOnClickListener {
-            if (par1 && par2) {
+           if(!checkEmail()){ //틀린 경우
+                Toast.makeText(applicationContext,"이메일 형식에 맞게 입력하세요!",Toast.LENGTH_LONG).show()
+           } else if (par1 && par2) {
                 if (binding.joinPw.getText().toString().equals(binding.joinPwCheck.getText().toString())){
                     createAccount(
-                    binding.joinId.text.toString(),
-                    binding.joinPw.text.toString(),
-                    binding.joinNickname.text.toString()
+                        binding.joinId.text.toString(),
+                        binding.joinPw.text.toString(),
+                        binding.joinNickname.text.toString()
                     )
                 }else
                     Toast.makeText(this, "비밀번호를 확인하시길 바랍니다", Toast.LENGTH_LONG).show()
@@ -70,14 +79,20 @@ class JoinmembershipActivity : Activity(){
             else
                 Toast.makeText(this,"닉네임과 아이디 중복확인 바랍니다",Toast.LENGTH_LONG).show()
         }
+
+        //아이디 중복 확인 버튼 + 이메일 형태 확인
         binding.joinIdCheckBtn.setOnClickListener {
             if(binding.joinId.text.isNotEmpty()) {
-                idCheck(binding.joinId.text.toString())
-
+                if(checkEmail()) //이메일 형태 확인 구간
+                    idCheck(binding.joinId.text.toString())
+                else
+                    Toast.makeText(this,"이메일 형태를 확인하세요",Toast.LENGTH_LONG).show()
             }
             else
                 Toast.makeText(this,"아이디를 입력하세요",Toast.LENGTH_LONG).show()
         }
+
+        //닉네임 중복 확인 버튼
         binding.joinNicknameCheck.setOnClickListener {
             if(binding.joinNickname.text.isNotEmpty()) {
                 nicknameCheck(binding.joinNickname.text.toString())
@@ -166,5 +181,13 @@ class JoinmembershipActivity : Activity(){
                 }
             }
 
+    }
+    @SuppressLint("ResourceAsColor")
+    fun checkEmail():Boolean{
+        var email : EditText = findViewById(R.id.join_id)
+        val pattern = Patterns.EMAIL_ADDRESS
+        // 검사 정규식
+        var comp = email.text.toString().trim() //공백제거
+        return pattern.matcher(comp).matches()
     }
 }

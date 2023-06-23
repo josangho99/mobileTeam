@@ -11,15 +11,17 @@ public class CommunityItem {
     private String place;
     private String date;
     private String content;
+    private String sport;
     CommunityItem(){}
 
     //제목,작성자,위치,날짜,내용순
-    public CommunityItem(String title, String writer, String place, String date, String content){
+    public CommunityItem(String title, String writer, String place, String date, String content, String sport){
         this.title = title;
         this.writer = writer;
         this.place = place;
         this.date = date;
         this.content = content;
+        this.sport = sport;
     }
     public String getTitle(){
         return title;
@@ -56,14 +58,19 @@ public class CommunityItem {
         return content;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setContent(String content) { this.content = content; }
+
+    public String getSport() {
+        return sport;
+    }
+
+    public void setSport(String sport) {
+        this.sport = sport;
     }
 
     @NotNull
     public static ArrayList<CommunityItem> createContactsList(int numContacts) {
         ArrayList<CommunityItem> contacts = new ArrayList<>();
-        //contacts.add(new CommunityItem("제목","작성자","장소","일시")); // 1번째 아이템 <-이 형태로 글 수정하면 됨
         for(int i =1; i <= numContacts; i++){
             contacts.add(new CommunityItem());
         }

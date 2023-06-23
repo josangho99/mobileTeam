@@ -11,8 +11,10 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.teamproject.databinding.FragmentCommunityBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -33,8 +35,11 @@ class community : Fragment() {
     private var clist: ArrayList<CommunityItem> = ArrayList()
     private var clistSize = clist.size // 글의 갯수
     lateinit var binding : FragmentCommunityBinding
+    private lateinit var refreshLayout01 : SwipeRefreshLayout
     private lateinit var write_btn : ImageButton
     private var auth : FirebaseAuth = FirebaseAuth.getInstance()
+
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -44,67 +49,87 @@ class community : Fragment() {
             override fun onItemClick(v: View?, position: Int) {
             }
         })
+        /*var rootView = FragmentCommunityBinding.inflate(layoutInflater)
+        refreshLayout01 = rootView.findViewById(R.id.refreshLayout01)
+        refreshLayout01.setOnRefreshListener {
+            //adapter.notifyDataSetChanged()
+            CommunityItemAdapter(requireActivity(), clist).notifyDataSetChanged()
+            Toast.makeText(this.context, "새로고침 완료", Toast.LENGTH_SHORT).show()
+            refreshLayout01.isRefreshing = false
+
+        }*/
     }
 
-    @SuppressLint("NotifyDataSetChanged")
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        var rootView: ViewGroup = inflater.inflate(R.layout.fragment_community, container, false) as ViewGroup
-        communityRecyclerView = rootView.findViewById(R.id.community_items)
-        clist = CommunityItem.createContactsList(clistSize) // 글의 갯수
-        communityRecyclerView.setHasFixedSize(true)
-        initData()
+        @SuppressLint("NotifyDataSetChanged")
+        override fun onCreateView(
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
+        ): View? {
+            var rootView: ViewGroup = inflater.inflate(R.layout.fragment_community, container, false) as ViewGroup
+            communityRecyclerView = rootView.findViewById(R.id.community_items)
+            clist = CommunityItem.createContactsList(clistSize) // 글의 갯수
+            communityRecyclerView.setHasFixedSize(true)
+            initData()
 
-        //onCreate에서 실행
-        //adapter = CommunityItemAdapter(requireActivity(), clist)
+            //onCreate에서 실행
+            //adapter = CommunityItemAdapter(requireActivity(), clist)
 
-        //밑에 initData()에서 실행
-        communityRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
-        adapter.notifyDataSetChanged()
-        communityRecyclerView.adapter = adapter
+            //밑에 initData()에서 실행
+            communityRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
+            communityRecyclerView.adapter = adapter
+            adapter.notifyDataSetChanged()
 
-        write_btn = rootView.findViewById(R.id.community_writeBtn)
-        write_btn.setOnClickListener {
-            if(auth?.currentUser != null){
-                var intent = Intent(this.context,CommunitywriteActivity::class.java)
-                startActivity(intent)
-            } else
-                Toast.makeText(this.context,"로그인 상태가 아닙니다",Toast.LENGTH_LONG).show()
+            //새로고침 기능
+            /*refreshLayout01 = rootView.findViewById(R.id.refreshLayout01)
+        refreshLayout01.setOnRefreshListener {
+            //adapter.notifyDataSetChanged()
+            CommunityItemAdapter(requireActivity(), clist).notifyDataSetChanged()
+            Toast.makeText(this.context, "새로고침 완료", Toast.LENGTH_SHORT).show()
+            refreshLayout01.isRefreshing = false
+        }*/
+            //글쓰기 버튼
+            write_btn = rootView.findViewById(R.id.community_writeBtn)
+            write_btn.setOnClickListener {
+                if (auth?.currentUser != null) {
+                    var intent = Intent(this.context, CommunitywriteActivity::class.java)
+                    startActivity(intent)
+                } else
+                    Toast.makeText(this.context, "로그인 상태가 아닙니다", Toast.LENGTH_LONG).show()
+            }
+
+            return rootView
         }
 
-        return rootView
-    }
-    @SuppressLint("NotifyDataSetChanged")
-    private fun initData() { //Firebase에 있는 데이터 불러오기
-        val db = FirebaseFirestore.getInstance()
-        db.collection("Community")
-            .get()
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    for (document in task.result) {
-                        val title: String = document["title"].toString()
-                        val writer: String = document["writer"].toString()
-                        val place: String = document["place"].toString()
-                        val content: String = document["content"].toString()
-                        val date: String = document["date"].toString()
-                        val e = CommunityItem(
-                            title, writer, place, date, content
-                        )
-                        clist.add(e)
+        @SuppressLint("NotifyDataSetChanged")
+        private fun initData() { //Firebase에 있는 데이터 불러오기
+            val db = FirebaseFirestore.getInstance()
+            db.collection("Community")
+                .get()
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        for (document in task.result) {
+                            val title: String = document["title"].toString()
+                            val writer: String = document["writer"].toString()
+                            val place: String = document["place"].toString()
+                            val content: String = document["content"].toString()
+                            val date: String = document["date"].toString()
+                            val sport: String = document["sport"].toString()
+                            val e = CommunityItem(
+                                title, writer, place, date, content, sport
+                            )
+                            clist.add(e)
+                        }
+                        Log.d(TAG, "onComplete: 데이터 반영 완료$clist")
+                        val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
+                        adapter.addList(clist)
+                        communityRecyclerView.layoutManager = layoutManager
+                        adapter.notifyDataSetChanged()
+                        communityRecyclerView.adapter = adapter
+                    } else {
+                        Log.d(TAG, "onComplete: 실패")
                     }
-                    Log.d(TAG, "onComplete: 데이터 반영 완료$clist")
-                    val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
-                    adapter.addList(clist)
-                    communityRecyclerView.layoutManager = layoutManager
-                    adapter.notifyDataSetChanged()
-                    communityRecyclerView.adapter = adapter
-                } else {
-                    Log.d(TAG, "onComplete: 실패")
-                }
-            }.addOnFailureListener { e -> Log.d(TAG, "onFailure: " + e.message) }
-    }
+                }.addOnFailureListener { e -> Log.d(TAG, "onFailure: " + e.message) }
+        }
 
     companion object {
         /**

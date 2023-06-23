@@ -12,7 +12,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:gravity="center"
-        android:text="제목"
+        android:text="제목: "
         ></TextView>
     <TextView
         android:id="@+id/item_writer"
@@ -21,7 +21,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:gravity="center"
-        android:text="작성자"
+        android:textColor="@color/black"
+        android:text="작성자: "
         ></TextView>
     <TextView
         android:id="@+id/item_date"
@@ -30,7 +31,16 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:gravity="center"
-        android:text="날짜"
+        android:text="날짜: "
+        ></TextView>
+    <TextView
+        android:id="@+id/item_sport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:text="운동: "
         ></TextView>
     <TextView
         android:id="@+id/item_place"
@@ -39,7 +49,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:gravity="center"
-        android:text="장소"
+        android:text="장소: "
         ></TextView>
     <TextView
         android:id="@+id/item_content"

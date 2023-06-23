@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@color/white"
     android:layout_width="match_parent"
@@ -11,10 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:layout_marginLeft="20dp"
-        android:text = "아이디"
+        android:text="아이디"
         android:textColor="#797C80"
-        android:layout_marginRight="20dp"
-        ></TextView>
+        android:layout_marginRight="20dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,18 +29,19 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp">
-
         </EditText>
 
         <Button
             android:id="@+id/join_idCheckBtn"
-            android:layout_width="58dp"
-            android:layout_height="55dp"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
             android:textColor="@color/white"
             android:text="중복확인"
-            app:backgroundTint="#3333FF"
-            android:backgroundTint="#3333FF"
-            android:textSize="13sp">
+            android:background="@drawable/rounded"
+            app:backgroundTint="#00A9FF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:backgroundTint="#00A9FF">
 
         </Button>
     </LinearLayout>
@@ -86,7 +87,6 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginLeft="20dp"
-        android:textColor="@color/black"
         android:layout_marginTop="5dp"
         android:layout_marginRight="20dp"
         >
@@ -123,7 +123,6 @@
             android:layout_width="280dp"
             android:layout_height="60dp"
             android:layout_marginLeft="20dp"
-            android:textColor="@color/black"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp">
 
@@ -131,13 +130,15 @@
 
         <Button
             android:id="@+id/join_nicknameCheck"
-            android:layout_width="58dp"
-            android:layout_height="55dp"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
             android:text="중복확인"
-            android:backgroundTint="#3333FF"
+            android:background="@drawable/rounded"
             android:textColor="@color/white"
-            app:backgroundTint="#3333FF"
-            android:textSize="13sp">
+            app:backgroundTint="#00A9FF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:backgroundTint="#00A9FF">
 
         </Button>
     </LinearLayout>
@@ -149,11 +150,11 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text = "회원가입"
-        android:backgroundTint="#3333FF"
-        app:backgroundTint="#3333FF"
         android:textColor="@color/white"
+        app:backgroundTint="#00A9FF"
         android:textStyle="bold"
-        android:textSize="20dp"
+        android:textSize="18dp"
+        android:backgroundTint="#00A9FF"
         android:background="@drawable/rounded">
     </Button>
 </LinearLayout>
