@@ -26,9 +26,9 @@
         android:text="로그인 하기"
         android:textColor="@color/white"
         android:textStyle="bold"
-        app:backgroundTint="#3333FF"
-        android:textSize="15dp"
-        android:backgroundTint="#3333FF"
+        app:backgroundTint="#00A9FF"
+        android:textSize="18dp"
+        android:backgroundTint="#00A9FF"
         android:background="@drawable/rounded" />
     <Button
         android:id="@+id/myPage_logoutBtn"
@@ -79,37 +79,37 @@
 
     <Button
         android:id="@+id/myPage_reportBtn"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="40dp"
         android:layout_marginTop="260dp"
         android:layout_marginLeft="120dp"
-        android:backgroundTint="#3333FF"
-        app:backgroundTint="#3333FF"
+        android:backgroundTint="#00A9FF"
+        app:backgroundTint="#00A9FF"
         android:text="제보하기"
         android:textColor="@color/white"
         android:background="@drawable/rounded_radius_30" />
 
     <Button
         android:id="@+id/myPage_noticeBtn"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="40dp"
         android:layout_marginTop="400dp"
         android:layout_marginLeft="120dp"
         android:text="공지확인"
-        app:backgroundTint="#3333FF"
-        android:backgroundTint="#3333FF"
+        app:backgroundTint="#00A9FF"
+        android:backgroundTint="#00A9FF"
         android:textColor="@color/white"
         android:background="@drawable/rounded_radius_30" />
 
     <Button
         android:id="@+id/myPage_QNABtn"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_height="40dp"
         android:layout_marginTop="540dp"
-        android:backgroundTint="#3333FF"
+        android:backgroundTint="#00A9FF"
         android:textColor="@color/white"
         android:layout_marginLeft="120dp"
-        app:backgroundTint="#3333FF"
+        app:backgroundTint="#00A9FF"
         android:text="문의하기"
         android:background="@drawable/rounded_radius_30" />
     <ImageView
@@ -117,7 +117,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="260dp"
         android:layout_marginLeft="40dp"
-        android:backgroundTint="#3333FF"
+        android:backgroundTint="#00A9FF"
         android:src="@drawable/light_bulb_svg"
          />
     <ImageView

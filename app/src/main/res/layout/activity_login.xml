@@ -25,6 +25,7 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/rounded"
         android:backgroundTint="#EAF0F7"
+        android:textColor="@color/black"
         ></EditText>
     <TextView
         android:layout_width="match_parent"
@@ -42,6 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginLeft="20dp"
+        android:textColor="@color/black"
         android:layout_marginTop="5dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/rounded"
@@ -86,7 +88,7 @@
         android:background="@drawable/rounded"
         android:text="로그인 하기"
         android:textColor="@color/white"
-        app:backgroundTint="#3333FF"
+        app:backgroundTint="#00A9FF"
         android:textSize="18dp"
         android:textStyle="bold"></Button>
 

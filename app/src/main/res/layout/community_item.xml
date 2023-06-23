@@ -7,7 +7,7 @@
     android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
     android:background="@drawable/rounded"
-    android:backgroundTint="#3333FF"
+    android:backgroundTint="#00A9FF"
     android:id="@+id/item">
 
     <TextView
