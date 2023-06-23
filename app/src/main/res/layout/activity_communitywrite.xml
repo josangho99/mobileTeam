@@ -13,13 +13,16 @@
         android:layout_marginTop="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/black"
+        android:textColorHint="@color/black"
         android:hint="제목"
-        android:text=""
-        ></EditText>
+        android:text="" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginRight="20dp">
         <Button
             android:id="@+id/write_date"
             android:layout_width="wrap_content"
@@ -29,6 +32,7 @@
             android:textColor="@color/white"
             app:backgroundTint="#00A9FF"
             android:textStyle="bold"
+            android:backgroundTint="#00A9FF"
             android:text="날짜 설정" />
 
         <TextView
@@ -36,6 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
+            android:textColor="@color/black"
             android:hint=" 날짜" />
     </LinearLayout>
     <EditText
@@ -43,14 +48,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/black"
         android:hint="장소를 입력하세요"
+        android:textColorHint="@color/black"
         android:text=""/>
-    <Spinner
-        android:id="@+id/sport_spinner"
+    <EditText
+        android:id="@+id/write_sport"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:hint="운동종목"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:backgroundTint="@color/black"
         />
 
     <EditText
@@ -63,7 +76,10 @@
         android:background="@drawable/rectangle"
         android:gravity="top"
         android:hint="내용을 입력하세요."
-        android:text=""></EditText>
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:text="" />
+
     <Button
         android:id="@+id/write_writeBtn"
         android:layout_width="match_parent"
@@ -76,6 +92,6 @@
         android:textColor="@color/white"
         app:backgroundTint="#00A9FF"
         android:textStyle="bold"
-        ></Button>
+        android:backgroundTint="#00A9FF" />
 
 </LinearLayout>

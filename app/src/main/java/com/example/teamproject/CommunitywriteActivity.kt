@@ -30,13 +30,17 @@ class CommunitywriteActivity : Activity() {
 
         binding.writeWriteBtn.setOnClickListener {
             Log.d(TAG,"${auth.uid}")//현재 로그인중인 사용자의 uid
-            if(dateText.text.isNotEmpty()) { //날짜가 입력되어있는지 확인
+            if(dateText.text.isNotEmpty()
+                && binding.writeTitle.text.isNotEmpty()
+                && binding.writeContent.text.isNotEmpty()
+                && binding.writePlace.text.isNotEmpty()
+                && binding.writeSport.text.isNotEmpty()) { //날짜가 입력되어있는지 확인
                 post(
                     binding.writeTitle.text.toString(),
                     binding.writeContent.text.toString(),
                     dateText.text.toString(),
                     binding.writePlace.text.toString(),
-                    sport //TODO 아무것도 안고르고 글 작성시 데이터베이스에 어떻데 들어가는지 확인
+                    binding.writeSport.text.toString()
                 )
                 Toast.makeText(this, "글이 등록되었습니다", Toast.LENGTH_LONG).show()
                 finish()
@@ -50,10 +54,9 @@ class CommunitywriteActivity : Activity() {
             showDatePicker()
         }
 
-        //var sData = resources.getStringArray(R.array.sports)
-        //val adapter = ArrayAdapter(this, R.layout.simple_list_item_1, sData)
-        binding.sportSpinner.adapter = ArrayAdapter.createFromResource(
-            this,R.array.sports,R.layout.simple_list_item_1)
+        /*var sData = resources.getStringArray(R.array.sports)
+        val adapter = ArrayAdapter(this, R.layout.simple_list_item_1, sData)
+        binding.sportSpinner.adapter = adapter
 
         binding.sportSpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -64,8 +67,7 @@ class CommunitywriteActivity : Activity() {
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
-        }
-
+        }*/
     }
     fun post(title : String, content : String, date : String, place : String, sport : String){ //글 작성함수
         if(title.isNotEmpty()&&content.isNotEmpty()&&date.isNotEmpty()&&place.isNotEmpty()&&sport.isNotEmpty()) {

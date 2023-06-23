@@ -12,6 +12,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.TeamProject"
         android:usesCleartextTraffic="true"
@@ -21,7 +22,7 @@
 
         <activity
             android:name=".LoginActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".NaviActivity"
             android:exported="true">
@@ -53,6 +54,7 @@
         <activity android:name=".JoinmembershipActivity" />
         <activity android:name=".CommunitywriteActivity" />
         <activity android:name=".SearchActivity"/>
+        <activity android:name=".myContent"/>
 
         <meta-data android:name="com.kakao.sdk.AppKey" android:value="25bcb8fd5bdd44eac10033331683c387"/>
     </application>
