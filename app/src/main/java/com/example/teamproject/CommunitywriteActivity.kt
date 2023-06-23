@@ -34,7 +34,8 @@ class CommunitywriteActivity : Activity() {
                 post(
                     binding.writeTitle.text.toString(),
                     binding.writeContent.text.toString(),
-                    dateText.text.toString()
+                    dateText.text.toString(),
+                    binding.writeDate.text.toString()
                 )
                 Toast.makeText(this, "글이 등록되었습니다", Toast.LENGTH_LONG).show()
                 finish()
@@ -48,12 +49,12 @@ class CommunitywriteActivity : Activity() {
         }
 
     }
-    fun post(title : String, content : String, date : String){ //글 작성함수
+    fun post(title : String, content : String, date : String, place : String){ //글 작성함수
 
-        var title = title
-        var content = content
-        var date = date
-        val place = "장소미구현" //추후 장소입력받기
+        val title = title
+        val content = content
+        val date = date
+        val place = place
 
         //현재 로그인중인 사용자의 Nickname 가져오기
         db.collection("User")

@@ -81,7 +81,9 @@ public class CommunityItemAdapter extends RecyclerView.Adapter<CommunityItemAdap
                             CommunityItem e = items.get(pos);
                             Intent intent = new Intent(v.getContext(), CommunityitemActivity.class);
                             intent.putExtra("title",e.getTitle());
-                            //TODO 날짜와 위치 추가하기
+                            intent.putExtra("date",e.getDate());
+                            intent.putExtra("writer",e.getWriter());
+                            intent.putExtra("place",e.getPlace());
                             intent.putExtra("content",e.getContent());
                             v.getContext().startActivity(intent);
                         }

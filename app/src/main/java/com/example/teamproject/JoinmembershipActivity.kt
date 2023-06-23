@@ -37,8 +37,6 @@ class JoinmembershipActivity : Activity(){
                 }
                 else{
                     binding.joinPwCheckResult.setText("비밀번호가 일치하지 않습니다.")
-                    // 가입하기 버튼 비활성화
-                    //binding.joinJoinbtn.isEnabled=false
                 }
             }
             //입력하기 전
@@ -54,8 +52,6 @@ class JoinmembershipActivity : Activity(){
                 }
                 else{
                     binding.joinPwCheckResult.setText("비밀번호가 일치하지 않습니다.")
-                    // 가입하기 버튼 비활성화
-
                 }
             }
         })

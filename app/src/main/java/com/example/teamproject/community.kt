@@ -9,10 +9,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.teamproject.databinding.FragmentCommunityBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
 
@@ -32,6 +34,7 @@ class community : Fragment() {
     private var clistSize = clist.size // 글의 갯수
     lateinit var binding : FragmentCommunityBinding
     private lateinit var write_btn : ImageButton
+    private var auth : FirebaseAuth = FirebaseAuth.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -64,13 +67,16 @@ class community : Fragment() {
 
         write_btn = rootView.findViewById(R.id.community_writeBtn)
         write_btn.setOnClickListener {
-            var intent = Intent(this.context,CommunitywriteActivity::class.java)
-            startActivity(intent)
+            if(auth?.currentUser != null){
+                var intent = Intent(this.context,CommunitywriteActivity::class.java)
+                startActivity(intent)
+            } else
+                Toast.makeText(this.context,"로그인 상태가 아닙니다",Toast.LENGTH_LONG).show()
         }
 
         return rootView
     }
-    @SuppressLint("NotifyDataSetChanged", "SimpleDateFormat")
+    @SuppressLint("NotifyDataSetChanged")
     private fun initData() { //Firebase에 있는 데이터 불러오기
         val db = FirebaseFirestore.getInstance()
         db.collection("Community")

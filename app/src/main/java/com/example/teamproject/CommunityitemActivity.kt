@@ -13,8 +13,14 @@ class CommunityitemActivity :Activity() {
 
         var title = intent.getStringExtra("title")
         var content = intent.getStringExtra("content")
+        var writer = intent.getStringExtra("writer")
+        var date = intent.getStringExtra("date")
+        var place = intent.getStringExtra("place")
 
         binding.itemTitle.text = title
         binding.itemContent.text = content
+        binding.itemWriter.text = writer
+        binding.itemDate.text = date
+        binding.itemPlace.text = place
     }
 }
