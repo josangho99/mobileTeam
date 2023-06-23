@@ -35,7 +35,7 @@ class CommunitywriteActivity : Activity() {
                     binding.writeTitle.text.toString(),
                     binding.writeContent.text.toString(),
                     dateText.text.toString(),
-                    binding.writeDate.text.toString()
+                    binding.writePlace.text.toString()
                 )
                 Toast.makeText(this, "글이 등록되었습니다", Toast.LENGTH_LONG).show()
                 finish()
@@ -55,27 +55,28 @@ class CommunitywriteActivity : Activity() {
         val content = content
         val date = date
         val place = place
+        var writer : String
 
         //현재 로그인중인 사용자의 Nickname 가져오기
         db.collection("User")
-            .whereEqualTo("Uid",auth.currentUser?.uid)
+            .whereEqualTo("uid",auth.currentUser?.uid)
             .get()
             .addOnCompleteListener { task ->
                 if(task.isSuccessful) {
                     var post = hashMapOf<String,Any>()
                     for(document in task.result){
                         Log.d(TAG, "현재 사용자 불러오기 완료")
-                        var writer : String = document["Nickname"].toString()
-                        post.put("writer", writer)
+                        writer = document["nickname"].toString()
+                        post["writer"] = writer
                     }
-                    post.put("title", title)
-                    post.put("content", content)
-                    post.put("date", date)
-                    post.put("place", place)
+                    post["title"] = title
+                    post["content"] = content
+                    post["date"] = date
+                    post["place"] = place
                     //입력내용기반으로 데이터베이스에 등록
                     db?.collection("Community")
                         ?.add(post)
-                        ?.addOnSuccessListener {
+                        ?.addOnCompleteListener {
                             Log.i(TAG, "글 작성 성공")
                         }?.addOnFailureListener {
                             Log.i(TAG, "글 작성 에러")

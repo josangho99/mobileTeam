@@ -30,6 +30,7 @@
         android:layout_marginLeft="20dp"
         android:hint="날짜" />
     <EditText
+        android:id="@+id/write_place"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
