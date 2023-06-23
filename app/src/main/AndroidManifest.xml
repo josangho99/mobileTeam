@@ -55,6 +55,7 @@
         <activity android:name=".CommunityitemActivity" />
         <activity android:name=".JoinmembershipActivity" />
         <activity android:name=".CommunitywriteActivity" />
+        <activity android:name=".SearchActivity"/>
 
         <meta-data android:name="com.kakao.sdk.AppKey" android:value="25bcb8fd5bdd44eac10033331683c387"/>
     </application>

@@ -1,5 +1,6 @@
 package com.example.teamproject
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.teamproject.databinding.FragmentCenterlistBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,15 +36,20 @@ class centerlist : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var rootView: ViewGroup = inflater.inflate(R.layout.fragment_centerlist, container, false) as ViewGroup
-        centerRecyclerView = rootView.findViewById(R.id.centerlist_items)
+        val binding = FragmentCenterlistBinding.inflate(inflater, container, false)
+        centerRecyclerView = binding.centerlistItems
         centerList = CenterListItem.createContactsList(centerList_size) // 글의 갯수
         centerRecyclerView.setHasFixedSize(true)
         centerAdapter = CenterListItemAdapter(requireActivity(), centerList)
         centerRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
         centerRecyclerView.adapter = centerAdapter
+
+        binding.centerlistSearchBtn.setOnClickListener{
+            val intent = Intent(context, SearchActivity::class.java)
+            startActivity(intent)
+        }
         // Inflate the layout for this fragment
-        return rootView
+        return binding.root
     }
 
     companion object {
