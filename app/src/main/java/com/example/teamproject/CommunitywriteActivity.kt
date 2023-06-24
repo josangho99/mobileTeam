@@ -26,7 +26,6 @@ class CommunitywriteActivity : Activity() {
         setContentView(binding.root)
 
         dateText = findViewById(R.id.date_text)
-        lateinit var sport : String
 
         binding.writeWriteBtn.setOnClickListener {
             Log.d(TAG,"${auth.uid}")//현재 로그인중인 사용자의 uid
@@ -54,20 +53,6 @@ class CommunitywriteActivity : Activity() {
             showDatePicker()
         }
 
-        /*var sData = resources.getStringArray(R.array.sports)
-        val adapter = ArrayAdapter(this, R.layout.simple_list_item_1, sData)
-        binding.sportSpinner.adapter = adapter
-
-        binding.sportSpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                if(position != 0) {
-                    sport = binding.sportSpinner.selectedItem.toString()
-                }
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
-        }*/
     }
     fun post(title : String, content : String, date : String, place : String, sport : String){ //글 작성함수
         if(title.isNotEmpty()&&content.isNotEmpty()&&date.isNotEmpty()&&place.isNotEmpty()&&sport.isNotEmpty()) {
@@ -95,6 +80,7 @@ class CommunitywriteActivity : Activity() {
                         post["date"] = date
                         post["place"] = place
                         post["sport"] = sport
+                        post["timestamp"] = System.currentTimeMillis()
                         //입력내용기반으로 데이터베이스에 등록
                         db?.collection("Community")
                             ?.add(post)

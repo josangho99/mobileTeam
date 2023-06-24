@@ -12,6 +12,7 @@ public class CommunityItem {
     private String date;
     private String content;
     private String sport;
+    private Long timestamp; //글 작성 시간
     CommunityItem(){}
 
     //제목,작성자,위치,날짜,내용순
@@ -68,6 +69,13 @@ public class CommunityItem {
         this.sport = sport;
     }
 
+    public Long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Long timestamp) {
+        this.timestamp = timestamp;
+    }
     @NotNull
     public static ArrayList<CommunityItem> createContactsList(int numContacts) {
         ArrayList<CommunityItem> contacts = new ArrayList<>();

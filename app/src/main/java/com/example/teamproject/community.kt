@@ -11,14 +11,12 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.teamproject.databinding.FragmentCommunityBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import java.text.SimpleDateFormat
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -49,15 +47,12 @@ class community : Fragment() {
             override fun onItemClick(v: View?, position: Int) {
             }
         })
-        /*var rootView = FragmentCommunityBinding.inflate(layoutInflater)
-        refreshLayout01 = rootView.findViewById(R.id.refreshLayout01)
-        refreshLayout01.setOnRefreshListener {
-            //adapter.notifyDataSetChanged()
-            CommunityItemAdapter(requireActivity(), clist).notifyDataSetChanged()
-            Toast.makeText(this.context, "새로고침 완료", Toast.LENGTH_SHORT).show()
-            refreshLayout01.isRefreshing = false
+    }
 
-        }*/
+    @SuppressLint("NotifyDataSetChanged")
+    override fun onResume() {
+        super.onResume()
+        refreshData()
     }
 
         @SuppressLint("NotifyDataSetChanged")
@@ -69,24 +64,16 @@ class community : Fragment() {
             communityRecyclerView = rootView.findViewById(R.id.community_items)
             clist = CommunityItem.createContactsList(clistSize) // 글의 갯수
             communityRecyclerView.setHasFixedSize(true)
+
+            val layoutManager = LinearLayoutManager(context)
+            layoutManager.reverseLayout = true
+            layoutManager.stackFromEnd = true
+            adapter.addList(clist)
+            communityRecyclerView.layoutManager = layoutManager
+            adapter.notifyDataSetChanged()
+            communityRecyclerView.adapter = adapter
             initData()
 
-            //onCreate에서 실행
-            //adapter = CommunityItemAdapter(requireActivity(), clist)
-
-            //밑에 initData()에서 실행
-            communityRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
-            communityRecyclerView.adapter = adapter
-            adapter.notifyDataSetChanged()
-
-            //새로고침 기능
-            /*refreshLayout01 = rootView.findViewById(R.id.refreshLayout01)
-        refreshLayout01.setOnRefreshListener {
-            //adapter.notifyDataSetChanged()
-            CommunityItemAdapter(requireActivity(), clist).notifyDataSetChanged()
-            Toast.makeText(this.context, "새로고침 완료", Toast.LENGTH_SHORT).show()
-            refreshLayout01.isRefreshing = false
-        }*/
             //글쓰기 버튼
             write_btn = rootView.findViewById(R.id.community_writeBtn)
             write_btn.setOnClickListener {
@@ -103,7 +90,7 @@ class community : Fragment() {
         @SuppressLint("NotifyDataSetChanged")
         private fun initData() { //Firebase에 있는 데이터 불러오기
             val db = FirebaseFirestore.getInstance()
-            db.collection("Community")
+            db.collection("Community").orderBy("timestamp")
                 .get()
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
@@ -120,7 +107,9 @@ class community : Fragment() {
                             clist.add(e)
                         }
                         Log.d(TAG, "onComplete: 데이터 반영 완료$clist")
-                        val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
+                        val layoutManager = LinearLayoutManager(context)
+                        layoutManager.reverseLayout = true //역순 정렬
+                        layoutManager.stackFromEnd = true
                         adapter.addList(clist)
                         communityRecyclerView.layoutManager = layoutManager
                         adapter.notifyDataSetChanged()
@@ -130,6 +119,40 @@ class community : Fragment() {
                     }
                 }.addOnFailureListener { e -> Log.d(TAG, "onFailure: " + e.message) }
         }
+
+    private fun refreshData(){      //화면 전환시마다 데이터 업데이트
+        val db = FirebaseFirestore.getInstance()
+        db.collection("Community").orderBy("timestamp")
+            .get()
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    clist.clear()
+                    for (document in task.result) {
+                        val title: String = document["title"].toString()
+                        val writer: String = document["writer"].toString()
+                        val place: String = document["place"].toString()
+                        val content: String = document["content"].toString()
+                        val date: String = document["date"].toString()
+                        val sport: String = document["sport"].toString()
+                        val e = CommunityItem(
+                            title, writer, place, date, content, sport
+                        )
+                        clist.add(e)
+                    }
+                    Log.d(TAG, "onComplete: 데이터 반영 완료$clist")
+                    val layoutManager = LinearLayoutManager(context)
+                    layoutManager.reverseLayout = true
+                    layoutManager.stackFromEnd = true
+                    adapter.addList(clist)
+                    communityRecyclerView.layoutManager = layoutManager
+                    adapter.notifyDataSetChanged()
+                    communityRecyclerView.adapter = adapter
+                } else {
+                    Log.d(TAG, "onComplete: 실패")
+                }
+            }.addOnFailureListener { e -> Log.d(TAG, "onFailure: " + e.message) }
+    }
+
 
     companion object {
         /**
@@ -147,5 +170,6 @@ class community : Fragment() {
                 arguments = Bundle().apply {
                 }
             }
+
     }
 }
