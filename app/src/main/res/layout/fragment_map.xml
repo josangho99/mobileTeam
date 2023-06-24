@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".map">
@@ -9,19 +10,267 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clKakaoMapView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="200dp">
 
-    <ImageButton
-        android:id="@+id/map_searchBtn"
-        android:layout_width="45dp"
-        android:padding="3dp"
-        android:layout_height="45dp"
-        android:layout_marginLeft="340dp"
-        android:layout_marginTop="22.5dp"
-        android:backgroundTint="@color/white"
-        android:background="@drawable/circle"
-        android:src="@drawable/search_svg">
-    </ImageButton>
+        <Button
+            android:id="@+id/changebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="450dp"
+            android:text="목록보기"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="#E8EAF6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#00ff0000"
+            app:layout_constraintBottom_toTopOf="@+id/btn_nextPage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
+
+        <Button
+            android:id="@+id/btn_prevPage"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:enabled="false"
+            android:text="이전"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btn_nextPage"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:enabled="false"
+            android:text="다음"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_pageNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_nextPage"
+            app:layout_constraintEnd_toStartOf="@+id/btn_nextPage"
+            app:layout_constraintStart_toEndOf="@+id/btn_prevPage"
+            app:layout_constraintTop_toTopOf="@+id/btn_nextPage" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <TableLayout
+        android:id="@+id/categorytable"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="#ACCEFF"
+        android:collapseColumns="6"
+        android:stretchColumns="*">
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/billiards"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:enabled="true"
+                android:text="당구" />
+
+            <Button
+                android:id="@+id/soccer"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:enabled="true"
+                android:text="축구" />
+
+            <Button
+                android:id="@+id/baseball"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:enabled="true"
+                android:text="야구" />
+
+            <Button
+                android:id="@+id/basketball"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:enabled="true"
+                android:text="농구" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/footvolley"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:enabled="true"
+                android:text="족구" />
+
+            <Button
+                android:id="@+id/pingpong"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:enabled="true"
+                android:text="탁구" />
+
+            <Button
+                android:id="@+id/bowling"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:enabled="true"
+                android:text="볼링" />
+
+            <Button
+                android:id="@+id/football"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:enabled="true"
+                android:text="풋살" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/tennis"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:enabled="true"
+                android:text="테니스" />
+
+            <Button
+                android:id="@+id/badminton"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:enabled="true"
+                android:text="배드민턴" />
+
+            <Button
+                android:id="@+id/golf"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:enabled="true"
+                android:text="골프" />
+
+            <Button
+                android:id="@+id/swimming"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:enabled="true"
+                android:text="수영" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/pilates"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:enabled="true"
+                android:text="필라테스" />
+
+            <Button
+                android:id="@+id/workout"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:enabled="true"
+                android:text="헬스" />
+
+            <Button
+                android:id="@+id/yoga"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:enabled="true"
+                android:text="요가" />
+
+            <Button
+                android:id="@+id/climbing"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:enabled="true"
+                android:text="클라이밍" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/taekwondo"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:enabled="true"
+                android:text="태권도" />
+
+            <Button
+                android:id="@+id/boxing"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:enabled="true"
+                android:text="복싱" />
+
+            <Button
+                android:id="@+id/jujitsu"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:enabled="true"
+                android:text="주짓수" />
+
+            <Button
+                android:id="@+id/judo"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:enabled="true"
+                android:text="유도" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/outdoor"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:layout_span="2"
+                android:enabled="true"
+                android:text="시흥야외운동기구" />
+
+            <Button
+                android:id="@+id/etc"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:enabled="true"
+                android:text="기타" />
+
+            <Button
+                android:id="@+id/all"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="50dp"
+                android:enabled="true"
+                android:text="전체" />
+        </TableRow>
+    </TableLayout>
 
     <ImageButton
         android:id="@+id/my_locationBtn"
