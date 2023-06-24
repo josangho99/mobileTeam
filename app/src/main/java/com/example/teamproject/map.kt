@@ -279,6 +279,22 @@ class map : Fragment() {
             keyword="전체"
             pageNumber = 1
             for (i in 0..19) searchKeyword(sportlist[i], pageNumber,false)
+            val jsonString: String = loadJSONFromAsset(requireContext().assets, "gymData.json")
+            val gymInfoList: List<dataParsing.GymInfo> = parseJSONString(jsonString, requireContext())
+
+            for (gymInfo in gymInfoList) {
+                val item = ListLayout(gymInfo.facilityName, gymInfo.address, gymInfo.category, gymInfo.longitude, gymInfo.latitude, "")//거리 정보는 없음
+                listItems.add(item)
+
+                val point = MapPOIItem()
+                point.apply {
+                    itemName = gymInfo.facilityName
+                    mapPoint = MapPoint.mapPointWithGeoCoord(gymInfo.longitude, gymInfo.latitude)
+                    markerType = MapPOIItem.MarkerType.BluePin
+                    selectedMarkerType = MapPOIItem.MarkerType.RedPin
+                }
+                mapView.addPOIItem(point)
+            }
         }
 
         if (checkLocationService()) {
