@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.AssetManager
 import android.location.Location
 import android.location.LocationManager
 import android.net.Uri
@@ -27,11 +28,14 @@ import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
 import net.daum.mf.map.api.MapView
 import net.daum.mf.map.n.api.internal.NativeMapLocationManager.setShowCurrentLocationMarker
+import org.json.JSONException
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.IOException
+import java.io.InputStream
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -244,7 +248,23 @@ class map : Fragment() {
         }
         //6행 카테고리
         binding.outdoor.setOnClickListener {
-            //카카오맵에 없음
+            val jsonString: String = loadJSONFromAsset(requireContext().assets, "gymData.json")
+            val gymInfoList: List<dataParsing.GymInfo> = parseJSONString(jsonString, requireContext())
+
+            for (gymInfo in gymInfoList) {
+                val item = ListLayout(gymInfo.facilityName, gymInfo.address, gymInfo.category, gymInfo.longitude, gymInfo.latitude, "")//거리 정보는 없음
+                listItems.add(item)
+
+                val point = MapPOIItem()
+                point.apply {
+                    itemName = gymInfo.facilityName
+                    mapPoint = MapPoint.mapPointWithGeoCoord(gymInfo.longitude, gymInfo.latitude)
+                    markerType = MapPOIItem.MarkerType.BluePin
+                    selectedMarkerType = MapPOIItem.MarkerType.RedPin
+                }
+                mapView.addPOIItem(point)
+            }
+
         }
         binding.etc.setOnClickListener {
             keyword="게이트볼"
@@ -261,18 +281,26 @@ class map : Fragment() {
             for (i in 0..19) searchKeyword(sportlist[i], pageNumber,false)
         }
 
+        if (checkLocationService()) {
+            // GPS가 켜져있을 경우
+            //권한이 있는경우 첫 시작 화면을 내위치로 이동
+            if (ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+                val lm: LocationManager = requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
+                userNowLocation = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)!!
+                val uLatitude = userNowLocation?.latitude
+                val uLongitude = userNowLocation?.longitude
+                val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude!!, uLongitude!!)
+                mapView.setMapCenterPoint(uNowPosition,     true)
+            }
+            else{
+                requestPermissions(arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), ACCESS_FINE_LOCATION) // 권한 요청
+            }
+        } else {
+            // GPS가 꺼져있을 경우
+            Toast.makeText(requireContext(), "GPS를 켜주세요", Toast.LENGTH_SHORT).show()
+        }
 
-        if (ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-            val lm: LocationManager = requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
-            userNowLocation = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)!!
-            val uLatitude = userNowLocation?.latitude
-            val uLongitude = userNowLocation?.longitude
-            val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude!!, uLongitude!!)
-            mapView.setMapCenterPoint(uNowPosition,     true)
-        }
-        else{
-            requestPermissions(arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), ACCESS_FINE_LOCATION) // 권한 요청
-        }
+
 
         //mylocation버튼을 누르면 현재위치로 지도 이동
         binding.myLocationBtn.setOnClickListener(){
@@ -287,6 +315,12 @@ class map : Fragment() {
                 mapView.setMapCenterPoint(uNowPosition, true)
             }
         }
+
+
+
+
+
+
 
         return binding.root
         // Inflate the layout for this fragment
@@ -349,5 +383,40 @@ class map : Fragment() {
             }
         })
     }
+    // GPS가 켜져있는지 확인
+    private fun checkLocationService(): Boolean {
+        val locationManager = context?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+    }
+
+    private fun loadJSONFromAsset(assetManager: AssetManager, fileName: String): String {
+        lateinit var json: String
+
+        try {
+            val inputStream: InputStream = assetManager.open(fileName)
+            val size: Int = inputStream.available()
+            val buffer = ByteArray(size)
+            inputStream.read(buffer)
+            inputStream.close()
+            json = String(buffer, Charsets.UTF_8)
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        return json
+    }
+
+    private fun parseJSONString(jsonString: String, context: Context): List<dataParsing.GymInfo> {
+        var gymInfoList = mutableListOf<dataParsing.GymInfo>()
+        val DataParsing = dataParsing()
+        try {
+            gymInfoList =
+                DataParsing.parseGymData(loadJSONFromAsset(context.assets, "gymData.json")).toMutableList()
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+        return gymInfoList
+    }
 
 }
+
+

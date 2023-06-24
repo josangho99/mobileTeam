@@ -233,7 +233,7 @@ class centerlist : Fragment() {
             for (i in 0..19) searchKeyword(sportlist[i], pageNumber,false)
         }
 
-
+        //위치권한 있는지 확인
         if (ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
             val lm: LocationManager = requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
             userNowLocation = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)!!
